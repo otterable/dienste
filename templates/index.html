@@ -4,7 +4,7 @@
     <title>Ermine.at - Dienste</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
     <style>
-        body {
+           body {
             margin: 0;
             padding: 0;
             display: flex;
@@ -13,7 +13,7 @@
             background-color: black;
             color: white;
             font-family: Arial, sans-serif;
-        }
+        }	
 
         .logo-container {
             text-align: center;
@@ -21,24 +21,27 @@
         }
 
         .logo {
-            max-width: 20%; /* Reduced by 50% */
+            max-width: 12%; /* Reduced by 50% */
             height: auto;
         }
 
-        .button-container {
+             .button-container {
+            flex: 1; /* Occupy 50% of the available width */
             display: flex;
+            flex-direction: column;
+            align-items: center;
             justify-content: center;
-            flex-wrap: wrap;
-            padding: 20px 0;
+            padding: 20px;
+            box-sizing: border-box;
         }
 
         .button {
             font-weight: bold;
             border: none;
-            padding: 30px 60px;
+            padding: 20px 40px;
             margin: 10px;
             cursor: pointer;
-            font-size: 20px;
+            font-size: 25px;
             text-decoration: none;
             display: inline-block;
             border-radius: 10px;
@@ -68,7 +71,7 @@
         }
 
         .audio-info {
-            font-size: 25px;
+            font-size: 30px;
             margin-top: 10px;
         }
 
@@ -85,27 +88,25 @@
 
         /* Adjust layout on mobile */
         @media (max-width: 768px) {
-		
-			.logo {
+            .logo {
                 max-width: 60%; /* Increased size for mobile */
             }
-		
             .audio-container {
                 width: calc(50% - 20px); /* Two columns on smaller screens */
             }
         }
-		
-		.image-container {
+
+        .image-container {
             text-align: center;
             margin-bottom: 20px;
             box-sizing: border-box; /* Include padding and borders in the width calculation */
         }
-        
+
         .image-container img {
             max-width: 100%;
             height: auto;
         }
-        
+
         /* Mobile layout */
         @media (max-width: 768px) {
             .image-container {
@@ -115,8 +116,8 @@
                 clear: both; /* Clear float after each image */
             }
         }
-        
-                /* Desktop layout */
+
+        /* Desktop layout */
         @media (min-width: 769px) {
             .image-container {
                 width: calc(50% - 20px); /* Each image takes 50% width for two columns, accounting for margins */
@@ -126,82 +127,87 @@
                 text-align: center;
             }
         }
-		
-		
-		
-		
-		
-        /* Slideshow container */
-        .slideshow-container {
-            position: relative;
-            width: 50%; /* Take 50% of the screen width */
-            height: 500px; /* Set fixed height */
-            float: left;
+
+        /* Showcase container styles */
+           .showcase-container {
+            flex: 1; /* Occupy 50% of the available width */
+            margin: 0 4%; /* Add a 4% gap on left and right sides */
+            height: 100vh;
             overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 10px;
+            border-radius: 10px; /* Add round edges */
         }
 
-        .slideshow-container img {
+
+     
+        .content-container {
+            display: flex;
+            align-items: stretch;
             width: 100%;
-            height: auto;
-            animation: slide 4s infinite; /* 4 seconds per slide */
+            height: 100vh;
         }
 
-        @keyframes slide {
-            0% { transform: translateX(0%); }
-            16.66% { transform: translateX(-100%); }
-            33.33% { transform: translateX(-200%); }
-            50% { transform: translateX(-300%); }
-            66.66% { transform: translateX(-400%); }
-            83.33% { transform: translateX(-500%); }
-            100% { transform: translateX(-600%); }
+
+
+
+        .showcase-image {
+            width: auto;
+            height: 100%;
+            max-width: 100%;
+            opacity: 0;
+            animation: fade 4s infinite;
+            object-fit: contain;
+            border-radius: 10px;
         }
-        
-        /* ... (existing styles) ... */
-        
-        /* Grey box styles */
-        .grey-box {
-            background-color: grey;
-            color: white;
-            width: 50%; /* Take 50% of the screen width */
-            float: right;
-            padding: 20px;
-            box-sizing: border-box;
+
+        @keyframes fade {
+            0%, 100% {
+                opacity: 0;
+            }
+            20%, 80% {
+                opacity: 1;
+            }
         }
     </style>
-	
-	
-	
-	
-	
+
     <script>
-        // JavaScript to load images for slideshow dynamically
-        document.addEventListener('DOMContentLoaded', function() {
-            var slideshowContainer = document.querySelector('.slideshow-container');
+        // JavaScript to load images for showcase dynamically and cycle through them
+        document.addEventListener('DOMContentLoaded', function () {
+            var showcaseContainer = document.querySelector('.showcase-container');
             var images = [
                 "image1.jpg",
                 "image2.jpg",
                 "image3.jpg"
                 // Add more image filenames here
             ];
+            var currentIndex = 0;
 
-            // Create img elements and add to slideshow
-            images.forEach(image => {
+            function changeImage() {
                 var img = document.createElement('img');
-                img.src = "{{ url_for('static', filename='slideshow/') }}" + image;
-                img.alt = image;
-                slideshowContainer.appendChild(img);
-            });
+                img.classList.add('showcase-image');
+                img.src = "{{ url_for('static', filename='slideshow/') }}" + images[currentIndex];
+                img.alt = images[currentIndex];
+                showcaseContainer.innerHTML = ''; // Clear previous image
+                showcaseContainer.appendChild(img);
+
+                currentIndex = (currentIndex + 1) % images.length; // Cycle through images
+                setTimeout(changeImage, 4000); // Change image every 4 seconds
+            }
+
+            changeImage();
         });
     </script>
 
-	
     <script>
         // Randomly shuffle the button colors on page load
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             var buttons = document.querySelectorAll('.button');
             var buttonColors = ['button-color-1', 'button-color-2', 'button-color-3', 'button-color-4', 'button-color-5', 'button-color-6', 'button-color-7', 'button-color-8'];
 
-            buttons.forEach(function(button) {
+            buttons.forEach(function (button) {
                 var randomIndex = Math.floor(Math.random() * buttonColors.length);
                 button.classList.add(buttonColors[randomIndex]);
             });
@@ -213,31 +219,29 @@
         <source src="{{ url_for('static', filename='video.mp4') }}" type="video/mp4">
         Your browser does not support the video tag.
     </video>
-    
-    <div id="header">
-    <div class="logo-container">
-        <a href="https://ermine.at" target="_blank"> <!-- Add anchor tag for the logo -->
-            <img class="logo" src="{{ url_for('static', filename='logo.png') }}" alt="Logo">
-        </a>
-    </div>
-</div>
-
-
-    <div id="content">
-        <!-- Slideshow container -->
-        <div class="slideshow-container"></div>
-        
-        <!-- Grey box with content -->
-        <div class="grey-box">
-            <h2>Auf diese Dienstleistungen sind wir spezialisiert</h2>
-            <ul>
-                <li>3D-Modellierung / 3D-Druck</li>
-                <li>Lasergravur und -schneiden</li>
-                <li>CNC Fräse Teileerstellung</li>
-                <li>Poster design, photo editing</li>
-                <li>Plakatgestaltung, Fotobearbeitung</li>
-            </ul>
+ <div class="logo-container">
+            <img class="logo" src="{{ url_for('static', filename='logo.png') }}" alt="Logo" id="logo">
         </div>
+    <div class="content-container">
+      
+
+        <div class="button-container">
+            <!-- Assign unique class names to each button for color change -->
+            <a href="http://3dprintwien.ermine.at" class="button button-color-1">3D-Modellierung / 3D-Druck</a>
+            <a href="http://3dprintwien.ermine.at" class="button button-color-2">Lasergravur und -schneiden</a>
+            <a href="http://cargobikes.ermine.at" class="button button-color-3">CNC Fräse Teileerstellung</a>
+            <a href="http://songlooping.ermine.at" class="button button-color-5">Poster design, photo editing</a>
+            <a href="http://beyondtouristtraps.ermine.at" class="button button-color-6">Plakatgestaltung, Fotobearbeitung</a>
+            <a href="http://soundscapes.ermine.at" class="button button-color-7">Weitere Projekte</a>
+        </div>
+
+    <div class="showcase-container">
+        <img class="showcase-image" src="{{ url_for('static', filename='slideshow/image1.jpg') }}" alt="Showcase Image 1">
+        <img class="showcase-image" src="{{ url_for('static', filename='slideshow/image2.jpg') }}" alt="Showcase Image 2">
+        <img class="showcase-image" src="{{ url_for('static', filename='slideshow/image3.jpg') }}" alt="Showcase Image 3">
+        <!-- Add more image elements here -->
     </div>
-	</body>
+    </div>
+
+</body>
 </html>
