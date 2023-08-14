@@ -1,4 +1,4 @@
-from flask import Flask, render_template, send_from_directory
+from flask import Flask, render_template, send_from_directory, request
 import os
 
 app = Flask(__name__, static_url_path='/static')
@@ -48,6 +48,10 @@ def category_images(category):
 @app.route('/art/<category>/<filename>')
 def view_image(category, filename):
     return send_from_directory(os.path.join('static', 'art', category), filename)
+    
+@app.route('/price_calculator')
+def price_calculator():
+    return render_template('index.html', art_categories=get_art_categories(), images=[], selected='all')
 
 if __name__ == '__main__':
     app.run(debug=True)

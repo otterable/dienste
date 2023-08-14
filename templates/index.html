@@ -172,6 +172,89 @@
             }
         }
     </style>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<script>
+    // Existing JavaScript code
+    
+    document.addEventListener('DOMContentLoaded', function() {
+        // Price Calculator
+        const form = document.getElementById('price-calculator-form');
+        const materialDropdown = document.getElementById('material');
+        
+        form.addEventListener('input', function() {
+            updateMaterialOptions();
+        });
+
+        function updateMaterialOptions() {
+            const breite = parseInt(document.getElementById('breite').value);
+            const lange = parseInt(document.getElementById('lange').value);
+
+            const optionA1 = materialDropdown.querySelector('option[value="A1"]');
+            if (breite <= 300 && lange <= 300) {
+                if (!optionA1) {
+                    materialDropdown.insertAdjacentHTML('beforeend', '<option value="A1">Sperrholz Pappel 4 mm - A1</option>');
+                }
+            } else {
+                if (optionA1) {
+                    optionA1.remove();
+                }
+            }
+
+            const optionA2 = materialDropdown.querySelector('option[value="A2"]');
+            if (breite <= 600 && lange <= 600) {
+                if (!optionA2) {
+                    materialDropdown.insertAdjacentHTML('beforeend', '<option value="A2">Sperrholz Pappel 4 mm - A2</option>');
+                }
+            } else {
+                if (optionA2) {
+                    optionA2.remove();
+                }
+            }
+
+            const optionB1 = materialDropdown.querySelector('option[value="B1"]');
+            if (breite <= 250 && lange <= 250) {
+                if (!optionB1) {
+                    materialDropdown.insertAdjacentHTML('beforeend', '<option value="B1">Plexiglas XT 4mm Farblos - B1</option>');
+                }
+            } else {
+                if (optionB1) {
+                    optionB1.remove();
+                }
+            }
+
+            const optionB2 = materialDropdown.querySelector('option[value="B2"]');
+            if (breite <= 500 && lange <= 500) {
+                if (!optionB2) {
+                    materialDropdown.insertAdjacentHTML('beforeend', '<option value="B2">Plexiglas XT 4mm Farblos - B2</option>');
+                }
+            } else {
+                if (optionB2) {
+                    optionB2.remove();
+                }
+            }
+        }
+    });
+</script>
+</script>
+</script>
+
+
+
+
+
+
 
     <script>
         // JavaScript to load images for showcase dynamically and cycle through them
@@ -242,6 +325,41 @@
         <!-- Add more image elements here -->
     </div>
     </div>
+	
+	
+	
+	
+	
+		<div id="content">
+    <!-- Price Calculator -->
+    <div class="price-calculator">
+        <h2>Preisrechner</h2>
+        <form id="price-calculator-form">
+            <label for="breite">Breite (mm):</label>
+            <input type="number" id="breite" max="1060" required>
+            <label for="lange">Länge (mm):</label>
+            <input type="number" id="lange" max="600" required>
+            <label for="material">Material:</label>
+            <select id="material" required>
+                <option value="">Select Material</option>
+                <option value="A1">Sperrholz Pappel 4 mm - A1</option>
+                <option value="A2">Sperrholz Pappel 4 mm - A2</option>
+                <option value="B1">Plexiglas XT 4mm Farblos - B1</option>
+                <option value="B2">Plexiglas XT 4mm Farblos - B2</option>
+            </select>
+            <button type="submit" id="calculate-price">Berechnen</button>
+        </form>
+        <div class="price-buttons" id="price-buttons"></div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
 
 </body>
 </html>
