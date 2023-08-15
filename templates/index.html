@@ -175,6 +175,34 @@
             padding: 20px;
             box-sizing: border-box;
             margin: 0 4%; /* Add 4% gap on left and right sides */
+		}
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			 .calculator-container {
+            margin: 20px;
+            padding: 20px;
+            border: 1px solid grey;
+            border-radius: 10px;
+            background-color: #f5f5f5;
+        }
+
+        .calculator-title {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .calculator-field {
+            margin-bottom: 10px;
+        
         }
     </style>
 	
@@ -184,8 +212,8 @@
         </div>
         <div class="button-container">
             <!-- Assign unique class names to each button for color change -->
-            <a href="http://agentur.ermine.at" class="button button-color-1">3D-Modellierung / 3D-Druck</a>
-            <a href="http://3dprintwien.ermine.at" class="button button-color-2">Lasergravur und -schneiden</a>
+            <a href="http://3dprintwien.ermine.at" class="button button-color-1">3D-Modellierung / 3D-Druck</a>
+            <a href="http://lasercutting.ermine.at" class="button button-color-2">Lasergravur und -schneiden</a>
             <a href="http://cargobikes.ermine.at" class="button button-color-3">CNC Fräse Teileerstellung</a>
             <a href="http://boardgames.ermine.at" class="button button-color-4">Board games</a>
             <a href="http://songlooping.ermine.at" class="button button-color-5">Poster design, photo editing</a>
@@ -276,105 +304,117 @@
             <!-- Add more image elements here -->
         </div>
         
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-<!-- calc zone -->
+ 
 
-		
-		
-		
+    <script async src="https://js.stripe.com/v3/buy-button.js"></script>
 
-		<!-- calc fields -->
-  <div class="grey-box">
-    <h2>Lasercutting Price Calculator</h2>
-    <form id="price-calculator">
-        <label for="length">Length (mm):</label>
-        <input type="number" id="length" name="length" min="1" max="600" required>
 
-        <label for="width">Width (mm):</label>
-        <input type="number" id="width" name="width" min="1" max="1000" required>
 
-        <label for="material">Material:</label>
-        <select id="material" name="material" required>
-            <option value="A1">Sperrholz Pappel 4 mm (max 300 x 300 mm)</option>
-            <option value="A2">Sperrholz Pappel 4 mm (max 600 x 600 mm)</option>
-            <option value="B1">Plexiglas XT 4mm Farblos 0A000 (max 250 x 250 mm)</option>
-            <option value="B2">Plexiglas XT 4mm Farblos 0A000 (max 500 x 500 mm)</option>
-            <!-- Add more material options here -->
-        </select>
 
-        <div id="stripe-buttons">
-            <!-- Stripe buttons will be dynamically added here -->
+
+
+
+<!-- calculator  -->
+
+
+         <!-- Price Calculator Title -->
+        <h2>Lasercutting Price Calculator</h2>
+
+        <!-- Price Calculator Fields -->
+        <div class="calculator-fields">
+            <label for="length">Length (mm):</label>
+            <input type="number" id="length" min="1" max="600" required>
+            <br>
+            <label for="width">Width (mm):</label>
+            <input type="number" id="width" min="1" max="1000" required>
+            <br>
+            <label for="material">Material:</label>
+            <select id="material">
+                <option value="A1">Sperrholz Pappel 4 mm (max 300x300 mm)</option>
+                <option value="A2">Sperrholz Pappel 4 mm (max 600x600 mm)</option>
+                <option value="B1">Plexiglas XT 4mm Farblos 0A000 (max 250x250 mm)</option>
+                <option value="B2">Plexiglas XT 4mm Farblos 0A000 (max 500x500 mm)</option>
+            </select>
         </div>
-    </form>
-</div>
 
 
 
 
 
-<!-- calculator script -->
-	
 
+
+
+<!-- stripe buttons -->
+
+
+
+        <!-- Stripe Buy Buttons (Hidden by Default) -->
+        <div class="stripe-buttons">
+            <!-- Stripe Buy Button for Material A1 -->
+            <stripe-buy-button
+                button-idx="A1"
+                buy-button-id="buy_btn_1NesocEgtx1au46G86UFAFDE"
+                publishable-key="pk_live_51Lxm6sEgtx1au46GHhDtjk3JZ04OaA8p7T6xM4lQFLxfbPotRsuT4AhoM4WA0myCsirZeQN32vnUvUSmn1zVyD3m00docojbx7"
+            ></stripe-buy-button>
+
+            <!-- Stripe Buy Button for Material A2 -->
+            <stripe-buy-button
+                button-idx="A2"
+                buy-button-id="buy_btn_1NeslUEgtx1au46G7pFcizqA"
+                publishable-key="pk_live_51Lxm6sEgtx1au46GHhDtjk3JZ04OaA8p7T6xM4lQFLxfbPotRsuT4AhoM4WA0myCsirZeQN32vnUvUSmn1zVyD3m00docojbx7"
+            ></stripe-buy-button>
+
+            <!-- Stripe Buy Button for Material B1 -->
+            <stripe-buy-button
+                button-idx="B1"
+                buy-button-id="buy_btn_1NesodEgtx1au46Gxj81tqaP"
+                publishable-key="pk_live_51Lxm6sEgtx1au46GHhDtjk3JZ04OaA8p7T6xM4lQFLxfbPotRsuT4AhoM4WA0myCsirZeQN32vnUvUSmn1zVyD3m00docojbx7"
+            ></stripe-buy-button>
+
+            <!-- Stripe Buy Button for Material B2 -->
+            <stripe-buy-button
+                button-idx="B2"
+                buy-button-id="buy_btn_1NesiZEgtx1au46GycxJQ4nI"
+                publishable-key="pk_live_51Lxm6sEgtx1au46GHhDtjk3JZ04OaA8p7T6xM4lQFLxfbPotRsuT4AhoM4WA0myCsirZeQN32vnUvUSmn1zVyD3m00docojbx7"
+            ></stripe-buy-button>
+        </div>
+    </div>
+
+
+
+
+
+
+  <!-- JavaScript to handle calculator logic and dynamic button display -->
 <script>
-   document.addEventListener('DOMContentLoaded', function() {
-    const lengthInput = document.getElementById('length');
-    const widthInput = document.getElementById('width');
-    const materialSelect = document.getElementById('material');
+    document.addEventListener('DOMContentLoaded', function() {
+        // Get DOM elements
+        var lengthInput = document.getElementById('length');
+        var widthInput = document.getElementById('width');
+        var materialSelect = document.getElementById('material');
+        var stripeButtons = document.querySelectorAll('.stripe-buttons stripe-buy-button');
 
-    const materialOptions = {
-        A1: { max: 300, show: () => lengthInput.value <= 300 && widthInput.value <= 300 },
-        A2: { max: 600, show: () => lengthInput.value <= 600 && widthInput.value <= 600 },
-        B1: { max: 250, show: () => lengthInput.value <= 250 && widthInput.value <= 250 },
-        B2: { max: 500, show: () => lengthInput.value <= 500 && widthInput.value <= 500 },
-    };
-
-    function updateMaterialOptions() {
-        for (const option in materialOptions) {
-            const shouldShow = materialOptions[option].show();
-            const optionElement = materialSelect.querySelector(`option[value="${option}"]`);
-            optionElement.style.display = shouldShow ? 'block' : 'none';
+        // Function to update Stripe button visibility
+        function updateButtonVisibility() {
+            var selectedMaterial = materialSelect.value;
+            stripeButtons.forEach(function(button) {
+                var buttonMaterial = button.getAttribute('button-idx');
+                if (buttonMaterial === selectedMaterial) {
+                    button.style.display = 'block';
+                } else {
+                    button.style.display = 'none';
+                }
+            });
         }
-    }
 
-    lengthInput.addEventListener('input', updateMaterialOptions);
-    widthInput.addEventListener('input', updateMaterialOptions);
-});
+        // Event listeners for input changes
+        lengthInput.addEventListener('input', updateButtonVisibility);
+        widthInput.addEventListener('input', updateButtonVisibility);
+        materialSelect.addEventListener('change', updateButtonVisibility);
 
-
-document.addEventListener('DOMContentLoaded', function() {
-    const stripeButtonsContainer = document.getElementById('stripe-buttons');
-    const stripeButtonsData = {
-        A1: { id: 'buy_btn_1NesocEgtx1au46G86UFAFDE' },
-        A2: { id: 'buy_btn_1NeslUEgtx1au46G7pFcizqA' },
-        B1: { id: 'buy_btn_1NesodEgtx1au46Gxj81tqaP' },
-        B2: { id: 'buy_btn_1NesiZEgtx1au46GycxJQ4nI' },
-        // Add more button data here
-    };
-
-    const materialSelect = document.getElementById('material');
-
-    materialSelect.addEventListener('change', function() {
-        const selectedOption = materialSelect.value;
-        const buttonId = stripeButtonsData[selectedOption].id;
-
-        // Clear previous buttons and create a new Stripe button
-        stripeButtonsContainer.innerHTML = '';
-        const stripeButton = document.createElement('stripe-buy-button');
-        stripeButton.setAttribute('buy-button-id', buttonId);
-        stripeButton.setAttribute('publishable-key', 'pk_live_51Lxm6sEgtx1au46GHhDtjk3JZ04OaA8p7T6xM4lQFLxfbPotRsuT4AhoM4WA0myCsirZeQN32vnUvUSmn1zVyD3m00docojbx7');
-        stripeButtonsContainer.appendChild(stripeButton);
+        // Initial button visibility setup
+        updateButtonVisibility();
     });
-});
-
 </script>
-
+</body>
+</html>
