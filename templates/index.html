@@ -17,11 +17,11 @@
 
         .logo-container {
             text-align: center;
-            padding: 20px 0;
+            padding: 5px 0;
         }
 
         .logo {
-            max-width: 12%; /* Reduced by 50% */
+            max-width: 8%; /* Reduced by 50% */
             height: auto;
         }
 
@@ -35,8 +35,8 @@
         .button {
             font-weight: bold;
             border: none;
-            padding: 30px 60px;
-            margin: 10px;
+            padding: 20px 40px;
+            margin: 5px;
             cursor: pointer;
             font-size: 20px;
             text-decoration: none;
@@ -204,23 +204,126 @@
             margin-bottom: 10px;
         
         }
+		
+		
+		
+		
+		
+		
+
+
+		  .poster-image2 {
+            max-width: 20%; /* Adjust the width as needed */
+            height: auto;
+        }
+		
+		
+		
+		
+		     /* Additional style for the new field */
+         .info-field {
+        background-color: rgba(0, 0, 0, 0.7);
+        border-radius: 10px;
+        padding: 20px;
+        margin: 20px auto;
+        color: white;
+        max-width: 70%;
+        text-align: center; /* Center the text */
+    }
+
+    .info-title {
+        font-weight: bold;
+        font-size: 24px;
+        margin-bottom: 10px;
+    }
+
+    .info-text {
+        font-size: 22px; /* Adjust the font size as needed */
+    }
+		
+		/* Mobile layout */
+@media (max-width: 768px) {
+    /* ... (other styles) ... */
+
+    /* Reduce the size of the logo by half */
+    .logo {
+        max-width: 50%; /* Adjust the width as needed */
+    }
+
+    /* ... (other styles) ... */
+}
+
+		
+
+
+  /* Mobile layout */
+    @media (max-width: 768px) {
+        /* ... (other styles) ... */
+
+        /* Increase the size of posters to 150% on mobile */
+        .poster-image {
+            max-width: 90%; /* Adjust the width as needed */
+        }
+
+        /* ... (other styles) ... */
+    }
+
+    /* Desktop layout */
+    @media (min-width: 769px) {
+        /* ... (other styles) ... */
+
+        /* Reduce the size of posters to 30% on desktop */
+        .poster-image {
+            max-width: 30%; /* Adjust the width as needed */
+        }
+
+        /* ... (other styles) ... */
+    }
+</style>
+
     </style>
 	
 	<div class="content-container">
         <div class="logo-container">
             <img class="logo" src="{{ url_for('static', filename='logo.png') }}" alt="Logo" id="logo">
         </div>
+		
+		
+		       <!-- Add the poster image here -->
+        <div class="poster-container">
+            <img class="poster-image" src="{{ url_for('static', filename='poster1.png') }}" alt="Poster 1">
+        </div>
+		
+		
+		
+		
         <div class="button-container">
             <!-- Assign unique class names to each button for color change -->
             <a href="http://3dprintwien.ermine.at" class="button button-color-1">3D-Modellierung / 3D-Druck</a>
+			<a href="http://3dprintwien.ermine.at" class="button button-color-1">3D-Scanning</a>
             <a href="http://lasercutting.ermine.at" class="button button-color-2">Lasergravur und -schneiden</a>
             <a href="http://cargobikes.ermine.at" class="button button-color-3">CNC Fräse Teileerstellung</a>
-            <a href="http://boardgames.ermine.at" class="button button-color-4">Board games</a>
             <a href="http://songlooping.ermine.at" class="button button-color-5">Poster design, photo editing</a>
             <a href="http://beyondtouristtraps.ermine.at" class="button button-color-6">Plakatgestaltung, Fotobearbeitung</a>
             <a href="http://soundscapes.ermine.at" class="button button-color-7">Weitere Projekte</a>
         </div>
     </div>
+	
+    <!-- Centered "poster3.png" image -->
+
+   <div class="info-field">
+    <div class="info-title">Wir sind eine kleine Werkstatt im Zentrum von Wien.</div>
+    <div class="info-subtitle">Unsere Vorteile sind:</div>
+    <div class="info-text">
+        <strong>Komfort:</strong> Unser Service ist <strong>schnell</strong>. Die Bestellung kann sofort über unseren <strong>Preisrechner</strong> aufgegeben werden. <strong>Kein</strong> E-Mail-Versand hin und zurück, <strong>keine</strong> Wartezeit auf Öffnungszeiten. Das ist der größte Vorteil, den wir Ihnen bieten.<br>
+        <strong>Preis:</strong> Unsere Preise sind <strong>günstig</strong>, und das unabhängig von der Art des Auftrages.<br>
+        <strong>Leidenschaft:</strong> Wir, die beiden Gründer, sind bei allem, was wir tun, mit Leidenschaft dabei. Sie machen Geschäfte direkt mit uns.
+    </div>
+</div>
+
+</div>
+
+
     
     <script>
         // JavaScript to load images for showcase dynamically and cycle through them
@@ -296,8 +399,14 @@
 
 
     <div id="content">
+		     <!-- Display "poster2.png" image -->
+        <div class="poster-container">
+            <img class="poster-image" src="{{ url_for('static', filename='poster2.png') }}" alt="Poster 2">
+        </div>
+	
         <!-- Image showcase container -->
         <div class="showcase-container">
+		
             <img class="showcase-image" src="{{ url_for('static', filename='slideshow/image1.jpg') }}" alt="Showcase Image 1">
             <img class="showcase-image" src="{{ url_for('static', filename='slideshow/image2.jpg') }}" alt="Showcase Image 2">
             <img class="showcase-image" src="{{ url_for('static', filename='slideshow/image3.jpg') }}" alt="Showcase Image 3">
@@ -379,9 +488,6 @@
             ></stripe-buy-button>
         </div>
     </div>
-
-
-
 
 
 
