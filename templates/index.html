@@ -95,6 +95,78 @@
             }
         }
 		
+		
+		
+		
+		
+
+	
+
+
+}
+	   
+}
+}
+	
+	}
+
+}
+@media (min-width: 769px) {
+    .calculator-container {
+        position: relative;
+        width: 42%; /* 50% - 4% - 4% */
+        margin: 0 4%; /* Add 4% gap on left and right sides */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 10px;
+        overflow: hidden;
+        background-color: rgba(0, 0, 0, 0.7); /* Add background color */
+        padding: 20px;
+        box-sizing: border-box;
+    }
+	
+	
+
+}
+/* Mobile layout */
+@media (max-width: 768px) {
+    .calculator-container {
+        position: relative;
+        width: 90%; /* 50% - 4% - 4% */
+        margin: 0 auto; /* Center horizontally */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        border-radius: 10px;
+        overflow: hidden;
+        background-color: rgba(0, 0, 0, 0.7); /* Add background color */
+        padding: 20px;
+        box-sizing: border-box;
+    }
+}
+		
+		@media (min-width: 769px) {
+		.calculator-container {
+    position: relative;
+    width: 42%; /* Take up 90% of the screen width */
+    margin: 0 auto; /* Center horizontally */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    overflow: hidden;
+    background-color: rgba(0, 0, 0, 0.7); /* Add background color */
+    padding: 13px;
+    box-sizing: border-box;
+}
+}	
+		
+		
+		
+		
 		.image-container {
             text-align: center;
             margin-bottom: 20px;
@@ -130,21 +202,51 @@
 		
 		
 		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
         /* Showcase container styles */
-   .showcase-container {
-            position: relative;
-            width: 42%; /* 50% - 4% - 4% */
-            height: 100%; /* Set to 100% to match the grey box height */
-            overflow: hidden;
-            float: left;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 4%; /* Add 4% gap on left and right sides */
-            border-radius: 10px; /* Add round corners */
-            overflow: hidden; /* Hide overflowing content */
-        }
+ .showcase-container {
+    position: relative;
+    width: 42%; /* 50% - 4% - 4% */
+    height: 100%; /* Set to 100% to match the grey box height */
+    overflow: hidden;
+    float: left;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 4%; /* Add 4% gap on left and right sides */
+    border-radius: 10px; /* Add round corners */
+    overflow: hidden; /* Hide overflowing content */
+	margin-bottom: 20px; /* Maintain the same margin as calculator */
 
+}
+
+/* Showcase container styles for mobile */
+@media (max-width: 768px) {
+    .showcase-container {
+        width: 90%; /* Take up 90% of the screen width */
+        border-radius: 15px; /* Add rounded edges */
+        display: flex; /* Add flex display for vertical centering */
+        align-items: center; /* Vertically center the content */
+        justify-content: center; /* Horizontally center the content */
+        margin-left: auto; /* Center the showcase perfectly */
+        margin-right: auto; /* Center the showcase perfectly */
+		        transform: translateX(-50%); /* Adjust for center alignment */
+				left: 50%
+
+    }
+}
         .showcase-image {
             width: auto;
             height: 100%;
@@ -186,26 +288,55 @@
 			
 			
 			
-			 .calculator-container {
-            margin: 20px;
+			
+			
+			
+
+			
+			
+			
+			
+			
+			
+			
+			
+			
+        /* Price Calculator Fields */
+        .calculator-fields {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: transparent;
             padding: 20px;
-            border: 1px solid grey;
             border-radius: 10px;
-            background-color: #f5f5f5;
+            margin-top: 20px;
         }
 
-        .calculator-title {
-            font-size: 24px;
+        .calculator-fields label {
             font-weight: bold;
-            margin-bottom: 10px;
+            font-size: 18px;
         }
 
-        .calculator-field {
+        .calculator-fields label,
+        .calculator-fields input,
+        .calculator-fields select {
             margin-bottom: 10px;
-        
+            width: 100%;
+            padding: 10px;
+            border-radius: 5px;
+            border: none;
+            font-size: 16px;
         }
-		
-		
+
+        .calculator-fields select {
+            appearance: none;
+            -webkit-appearance: none;
+            background: url('data:image/svg+xml;utf8,<svg fill="black" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="24" height="24"><path d="M1.332 4l14.284 12.444L29.944 4z"/></svg>') no-repeat right center;
+            background-size: 24px;
+            background-color: white;
+            padding-right: 40px;
+        }
+
 		
 		
 		
@@ -311,13 +442,24 @@
 	
     <!-- Centered "poster3.png" image -->
 
-   <div class="info-field">
-    <div class="info-title">Wir sind eine kleine Werkstatt im Zentrum von Wien.</div>
-    <div class="info-subtitle">Unsere Vorteile sind:</div>
-    <div class="info-text">
-        <strong>Komfort:</strong> Unser Service ist <strong>schnell</strong>. Die Bestellung kann sofort über unseren <strong>Preisrechner</strong> aufgegeben werden. <strong>Kein</strong> E-Mail-Versand hin und zurück, <strong>keine</strong> Wartezeit auf Öffnungszeiten. Das ist der größte Vorteil, den wir Ihnen bieten.<br>
-        <strong>Preis:</strong> Unsere Preise sind <strong>günstig</strong>, und das unabhängig von der Art des Auftrages.<br>
-        <strong>Leidenschaft:</strong> Wir, die beiden Gründer, sind bei allem, was wir tun, mit Leidenschaft dabei. Sie machen Geschäfte direkt mit uns.
+<div class="info-field">
+    <div class="info-title" style="font-size: 28px; font-weight: bold;">Wir sind eine kleine Werkstatt im Zentrum von Wien.</div>
+    <div class="info-subtitle" style="font-size: 24px; font-weight: bold;">Unsere Vorteile sind:</div>
+    <div style="margin-top: 20px;"> <!-- Adding a gap between titles -->
+        <div class="info-text">
+            <span style="color: #d62828; font-weight: bold; font-size:  35px; display: block;">Komfort:</span>
+            <span style="color: #f77f00; font-size: 24px;"><strong>Unser Service ist schnell.</strong></span> Die Bestellung kann sofort über unseren <span style="color: #f77f00; font-size: 24px;"><strong>Preisrechner</strong></span> aufgegeben werden. <span style="color: #f77f00; font-size: 24px;"><strong>Kein</strong></span> E-Mail-Versand hin und zurück, <span style="color: #f77f00; font-size: 24px;"><strong>keine</strong></span> Wartezeit auf Öffnungszeiten. Das ist der größte Vorteil, den wir Ihnen bieten.<br>
+            <span style="color: #d62828; font-weight: bold; font-size: 35px; display: block;">Preis:</span>
+            Unsere Preise sind <span style="color: #f77f00; font-size: 24px;"><strong>günstig</strong></span>, und das unabhängig von der Art des Auftrages.<br>
+            <span style="color: #d62828; font-weight: bold; font-size: 35px; display: block;">Leidenschaft:</span>
+            Wir, die beiden Gründer, sind bei allem, was wir tun, mit <span style="color: #f77f00; font-size: 24px;"><strong>Leidenschaft</strong></span> dabei. Sie machen Geschäfte direkt mit uns.
+        </div>
+    </div>
+</div>
+
+
+
+
     </div>
 </div>
 
@@ -325,33 +467,46 @@
 
 
     
-    <script>
-        // JavaScript to load images for showcase dynamically and cycle through them
-        document.addEventListener('DOMContentLoaded', function() {
-            var showcaseContainer = document.querySelector('.showcase-container');
-            var images = [
-                "image1.jpg",
-                "image2.jpg",
-                "image3.jpg"
-                // Add more image filenames here
-            ];
-            var currentIndex = 0;
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Get DOM elements
+        var showcaseContainer = document.querySelector('.showcase-container');
+        var images = [
+            "{{ url_for('static', filename='slideshow/image1.jpg') }}",
+            "{{ url_for('static', filename='slideshow/image2.jpg') }}",
+            "{{ url_for('static', filename='slideshow/image3.jpg') }}"
+           ];
+        var currentIndex = 0;
+        var preloadImages = [];
 
-            function changeImage() {
-                var img = document.createElement('img');
-                img.classList.add('showcase-image');
-                img.src = "{{ url_for('static', filename='slideshow/') }}" + images[currentIndex];
-                img.alt = images[currentIndex];
-                showcaseContainer.innerHTML = ''; // Clear previous image
-                showcaseContainer.appendChild(img);
-
-                currentIndex = (currentIndex + 1) % images.length; // Cycle through images
-                setTimeout(changeImage, 4000); // Change image every 4 seconds
-            }
-
-            changeImage();
+        // Preload images
+        images.forEach(function(imageUrl) {
+            var img = new Image();
+            img.src = imageUrl;
+            preloadImages.push(img);
         });
-    </script>
+
+        function changeImage() {
+            var img = document.createElement('img');
+            img.classList.add('showcase-image');
+            img.src = images[currentIndex];
+            img.alt = 'Showcase Image';
+
+            showcaseContainer.innerHTML = ''; // Clear previous image
+            showcaseContainer.appendChild(img);
+
+            // Reset opacity for smooth transition
+            setTimeout(function() {
+                img.style.opacity = 1;
+            }, 100);
+
+            currentIndex = (currentIndex + 1) % images.length; // Cycle through images
+            setTimeout(changeImage, 4000); // Change image every 4 seconds
+        }
+
+        changeImage();
+    });
+</script>
 	
     <script>
         // JavaScript to load images for slideshow dynamically
@@ -426,29 +581,21 @@
 <!-- calculator  -->
 
 
-         <!-- Price Calculator Title -->
-        <h2>Lasercutting Price Calculator</h2>
-
         <!-- Price Calculator Fields -->
-        <div class="calculator-fields">
-            <label for="length">Length (mm):</label>
-            <input type="number" id="length" min="1" max="600" required>
-            <br>
-            <label for="width">Width (mm):</label>
-            <input type="number" id="width" min="1" max="1000" required>
-            <br>
-            <label for="material">Material:</label>
-            <select id="material">
-                <option value="A1">Sperrholz Pappel 4 mm (max 300x300 mm)</option>
-                <option value="A2">Sperrholz Pappel 4 mm (max 600x600 mm)</option>
-                <option value="B1">Plexiglas XT 4mm Farblos 0A000 (max 250x250 mm)</option>
-                <option value="B2">Plexiglas XT 4mm Farblos 0A000 (max 500x500 mm)</option>
-            </select>
-        </div>
-
-
-
-
+<div class="calculator-container">
+    <div class="calculator-fields">
+        <label for="length">Length (mm):</label>
+        <input type="number" id="length" min="1" max="600" required placeholder="Enter length">
+        <label for="width">Width (mm):</label>
+        <input type="number" id="width" min="1" max="1000" required placeholder="Enter width">
+		   <input type="file" id="fileInput" style="display: none;">
+		        <label for="width">Material:</label>
+        <select id="material">
+            <option value="A1">Sperrholz Pappel 4 mm (max 300x300 mm)</option>
+            <option value="A2">Sperrholz Pappel 4 mm (max 600x600 mm)</option>
+            <option value="B1">Plexiglas XT 4mm Farblos 0A000 (max 250x250 mm)</option>
+            <option value="B2">Plexiglas XT 4mm Farblos 0A000 (max 500x500 mm)</option>
+        </select>
 
 
 
@@ -488,8 +635,7 @@
             ></stripe-buy-button>
         </div>
     </div>
-
-
+</div>
 
   <!-- JavaScript to handle calculator logic and dynamic button display -->
 <script>
@@ -524,3 +670,5 @@
 </script>
 </body>
 </html>
+
+
