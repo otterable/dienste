@@ -410,6 +410,41 @@
 
         /* ... (other styles) ... */
     }
+	
+	
+	
+	   /* Impressum Button Styling */
+    /* Center the Impressum Button */
+    .impressum-button {
+        display: block;
+        margin: 20px auto;
+        padding: 10px 20px;
+        font-size: 18px;
+        background-color: #003049;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+
+    /* Impressum Field Styling */
+    .impressum-field {
+        display: none;
+        background-color: rgba(0, 0, 0, 0.7);
+        border-radius: 10px;
+        padding: 20px;
+        margin: 20px auto;
+        color: white;
+        max-width: 70%;
+        text-align: center;
+    }
+
+    /* Show Impressum Field when toggled */
+    .impressum-visible {
+        display: block;
+    }
+	
 </style>
 
     </style>
@@ -637,6 +672,31 @@
     </div>
 </div>
 
+
+
+
+<!-- Impressum Button -->
+<button class="impressum-button" onclick="toggleImpressum()">Impressum</button>
+
+<!-- Impressum Field -->
+<div class="impressum-field" id="impressumField">
+    <p>Lukas Majer</p>
+    <p>Vorgartenstrasse 171, Wien, 1020</p>
+    <p>Multimedia Agentur</p>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
   <!-- JavaScript to handle calculator logic and dynamic button display -->
 <script>
     document.addEventListener('DOMContentLoaded', function() {
@@ -667,7 +727,27 @@
         // Initial button visibility setup
         updateButtonVisibility();
     });
+	
 </script>
+
+<script>
+    function toggleImpressum() {
+        var impressumField = document.getElementById('impressumField');
+        impressumField.classList.toggle('impressum-visible');
+    }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
 </body>
 </html>
 
