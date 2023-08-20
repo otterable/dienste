@@ -619,6 +619,20 @@
         <!-- Price Calculator Fields -->
 <div class="calculator-container">
     <div class="calculator-fields">
+	
+	<label for="selectedService">Ausgewählter Dienst:</label>
+<select id="selectedService" onchange="updateButtonVisibility()">
+    <option value="A1">3D-Modellierung / 3D-Druck</option>
+    <option value="A2">3D-Scanning</option>
+    <option value="B1">Lasergravur und -schneiden</option>
+    <option value="B2">CNC Fräse Teileerstellung</option>
+    <option value="B3">Poster design, photo editing</option>
+    <option value="B4">Plakatgestaltung, Fotobearbeitung</option>
+    <option value="B5">Weitere Projekte</option>
+</select>
+
+
+
         <label for="length">Length (mm):</label>
         <input type="number" id="length" min="1" max="600" required placeholder="Enter length">
         <label for="width">Width (mm):</label>
@@ -643,6 +657,7 @@
         <div class="stripe-buttons">
             <!-- Stripe Buy Button for Material A1 -->
             <stripe-buy-button
+				data-material="A1"
                 button-idx="A1"
                 buy-button-id="buy_btn_1NesocEgtx1au46G86UFAFDE"
                 publishable-key="pk_live_51Lxm6sEgtx1au46GHhDtjk3JZ04OaA8p7T6xM4lQFLxfbPotRsuT4AhoM4WA0myCsirZeQN32vnUvUSmn1zVyD3m00docojbx7"
@@ -650,6 +665,7 @@
 
             <!-- Stripe Buy Button for Material A2 -->
             <stripe-buy-button
+				data-material="A2"
                 button-idx="A2"
                 buy-button-id="buy_btn_1NeslUEgtx1au46G7pFcizqA"
                 publishable-key="pk_live_51Lxm6sEgtx1au46GHhDtjk3JZ04OaA8p7T6xM4lQFLxfbPotRsuT4AhoM4WA0myCsirZeQN32vnUvUSmn1zVyD3m00docojbx7"
@@ -657,6 +673,7 @@
 
             <!-- Stripe Buy Button for Material B1 -->
             <stripe-buy-button
+				data-material="B1"
                 button-idx="B1"
                 buy-button-id="buy_btn_1NesodEgtx1au46Gxj81tqaP"
                 publishable-key="pk_live_51Lxm6sEgtx1au46GHhDtjk3JZ04OaA8p7T6xM4lQFLxfbPotRsuT4AhoM4WA0myCsirZeQN32vnUvUSmn1zVyD3m00docojbx7"
@@ -664,6 +681,7 @@
 
             <!-- Stripe Buy Button for Material B2 -->
             <stripe-buy-button
+				data-material="B2"
                 button-idx="B2"
                 buy-button-id="buy_btn_1NesiZEgtx1au46GycxJQ4nI"
                 publishable-key="pk_live_51Lxm6sEgtx1au46GHhDtjk3JZ04OaA8p7T6xM4lQFLxfbPotRsuT4AhoM4WA0myCsirZeQN32vnUvUSmn1zVyD3m00docojbx7"
@@ -698,19 +716,18 @@
 
 
   <!-- JavaScript to handle calculator logic and dynamic button display -->
-<script>
+ <script>
     document.addEventListener('DOMContentLoaded', function() {
         // Get DOM elements
         var lengthInput = document.getElementById('length');
         var widthInput = document.getElementById('width');
         var materialSelect = document.getElementById('material');
         var stripeButtons = document.querySelectorAll('.stripe-buttons stripe-buy-button');
-
-        // Function to update Stripe button visibility
-        function updateButtonVisibility() {
-            var selectedMaterial = materialSelect.value;
+        
+        // Function to update the visibility of the Stripe buttons based on the selected material
+        function updateButtonVisibilityStripe(selectedMaterial) {
             stripeButtons.forEach(function(button) {
-                var buttonMaterial = button.getAttribute('button-idx');
+                var buttonMaterial = button.getAttribute('data-material');
                 if (buttonMaterial === selectedMaterial) {
                     button.style.display = 'block';
                 } else {
@@ -718,16 +735,30 @@
                 }
             });
         }
-
-        // Event listeners for input changes
-        lengthInput.addEventListener('input', updateButtonVisibility);
-        widthInput.addEventListener('input', updateButtonVisibility);
-        materialSelect.addEventListener('change', updateButtonVisibility);
-
-        // Initial button visibility setup
-        updateButtonVisibility();
+        
+        // Function to update dropdown menu options based on user input
+        function updateDropdownOptions() {
+            var selectedService = document.getElementById('selectedService').value;
+            var selectedLength = parseInt(lengthInput.value);
+            var selectedWidth = parseInt(widthInput.value);
+            var selectedMaterial = materialSelect.value; // Get the selected material from the dropdown
+            
+            // Call the appropriate updateButtonVisibility function based on selectedService
+            if (selectedService === 'A1' || selectedService === 'A2') {
+                updateButtonVisibilityStripe(selectedMaterial); // Update the visibility of Stripe buttons based on selected material
+            }
+        }
+        
+        // Attach event listeners to input fields and dropdown
+        lengthInput.addEventListener('input', updateDropdownOptions);
+        widthInput.addEventListener('input', updateDropdownOptions);
+        materialSelect.addEventListener('change', updateDropdownOptions);
+        
+        // Initialize button visibility based on default material
+        updateButtonVisibilityStripe(materialSelect.value);
     });
-	
+</script>
+
 </script>
 
 <script>
@@ -736,17 +767,6 @@
         impressumField.classList.toggle('impressum-visible');
     }
 </script>
-
-
-
-
-
-
-
-
-
-
-
 
 </body>
 </html>
