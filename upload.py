@@ -1,6 +1,5 @@
+from flask import Flask, render_template, send_from_directory, request
 import os
-from flask import Flask, render_template, request, jsonify
-
 
 app = Flask(__name__, static_url_path='/static')
 
@@ -53,17 +52,6 @@ def view_image(category, filename):
 @app.route('/price_calculator')
 def price_calculator():
     return render_template('index.html', art_categories=get_art_categories(), images=[], selected='all')
-
-
-@app.route('/upload', methods=['POST'])
-def upload():
-    if 'file' in request.files:
-        uploaded_file = request.files['file']
-        if uploaded_file.filename != '':
-            file_path = os.path.join('files', uploaded_file.filename)
-            uploaded_file.save(file_path)
-            return jsonify(success=True)
-    return jsonify(success=False)
 
 if __name__ == '__main__':
     app.run(debug=True)

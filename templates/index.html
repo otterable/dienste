@@ -101,6 +101,46 @@
 		
 
 	
+	
+	
+	
+	
+	
+	
+	
+#calculator {
+  background-color: #f9f9f9;
+  padding: 20px;
+  border-radius: 10px;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.calculator-field {
+  width: 80%;
+  padding: 15px;
+  margin-bottom: 15px;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  background-color: white;
+}
+
+.calculator-field:first-child {
+  margin-top: 0;
+}
+
+/* Style the dropdown menu */
+#material {
+  width: 85%;
+  padding: 15px;
+  margin-bottom: 15px;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  background-color: white;
+}
+
 
 
 }
@@ -112,19 +152,16 @@
 
 }
 @media (min-width: 769px) {
-    .calculator-container {
-        position: relative;
-        width: 42%; /* 50% - 4% - 4% */
-        margin: 0 4%; /* Add 4% gap on left and right sides */
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        border-radius: 10px;
-        overflow: hidden;
-        background-color: rgba(0, 0, 0, 0.7); /* Add background color */
-        padding: 20px;
-        box-sizing: border-box;
-    }
+.calculator-container {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    background-color: #fff;
+}
+
 	
 	
 
@@ -163,6 +200,41 @@
     box-sizing: border-box;
 }
 }	
+
+
+.calculator-input {
+    width: 10%;
+    padding: 50px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+	    box-sizing: border-box; /* This ensures that padding and border are included in the width */
+
+}
+
+
+.stripe-buy-button {
+    display: block;
+    width: 100%;
+    padding: 15px;
+    background-color: #007bff;
+    color: #fff;
+    font-size: 18px;
+    text-align: center;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Hover effect for the Stripe buy buttons */
+.stripe-buy-button:hover {
+    background-color: #0056b3;
+}
+
+/* Hide Stripe buy buttons initially */
+.stripe-buy-button {
+    display: none;
+}
 		
 		
 		
@@ -445,6 +517,95 @@
         display: block;
     }
 	
+	
+	
+	
+	
+	
+	
+	
+	
+	/* Style the labels */
+label {
+  font-size: 18px;
+  font-weight: bold;
+  display: block;
+  margin-bottom: 5px;
+}
+
+
+
+
+#file-upload-label {
+  font-size: 30px;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+
+/* Style the "Datei hochladen" label */
+#file-upload-label {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+/* Style the dropdown menu */
+
+
+/* Style the Stripe buy buttons */
+stripe-buy-button {
+  display: none;
+  width: 100%;
+  text-align: center;
+  padding: 10px;
+  background-color: #007bff;
+  border: none;
+  border-radius: 10px;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+stripe-buy-button:hover {
+  background-color: #0056b3;
+}
+
+/* Style the labels */
+label {
+  font-size: 18px;
+  font-weight: bold;
+  display: block;
+  margin-bottom: 5px;
+}
+
+
+.uploadButton {
+  background-color: orange;
+  color: white;
+  font-size: 16px;
+  padding: 10px 20px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+}
+
+.uploadButton:hover {
+  background-color: darkorange;
+}
+
+#uploadStatus {
+  font-size: 24px; /* You can adjust the font size as needed */
+}
+
+
+label[for="fileInput"] {
+  font-size: 18px; /* You can adjust the font size as needed */
+  font-weight: bold;
+}
+
+
+
 </style>
 
     </style>
@@ -619,17 +780,35 @@
         <!-- Price Calculator Fields -->
 <div class="calculator-container">
     <div class="calculator-fields">
+	
+	
+	
+	    <!-- Add upload button -->
+    <label for="fileInput">Datei hochladen:</label>
+	
+    <input type="file" id="fileInput" class="calculator-field" accept="*" required>
+    <button class="uploadButton"  id="upload_btn" type="button" onclick="uploadFile()">Hochladen</button>
+
+    <!-- Display upload status message -->
+    <div id="uploadStatus"></div>
+</div>
+
+
         <label for="length">Length (mm):</label>
-        <input type="number" id="length" min="1" max="600" required placeholder="Enter length">
+        <input type="number" id="length" min="1" max="600" class="calculator-field" required placeholder="Enter length">
         <label for="width">Width (mm):</label>
-        <input type="number" id="width" min="1" max="1000" required placeholder="Enter width">
+        <input type="number" id="width" min="1" max="1000" class="calculator-field" required placeholder="Enter width">
 		   <input type="file" id="fileInput" style="display: none;">
 		        <label for="width">Material:</label>
-        <select id="material">
-            <option value="A1">Sperrholz Pappel 4 mm (max 300x300 mm)</option>
+     <select id="material">
+    <!-- Add the default option here -->
+	   <option value="A1">Sperrholz Pappel 4 mm (max 300x300 mm)</option>
             <option value="A2">Sperrholz Pappel 4 mm (max 600x600 mm)</option>
             <option value="B1">Plexiglas XT 4mm Farblos 0A000 (max 250x250 mm)</option>
             <option value="B2">Plexiglas XT 4mm Farblos 0A000 (max 500x500 mm)</option>
+    <option value="" disabled selected>Select Material</option>
+</select>
+
         </select>
 
 
@@ -673,6 +852,37 @@
 </div>
 
 
+<script>
+    function uploadFile() {
+        var fileInput = document.getElementById('fileInput');
+        var uploadStatus = document.getElementById('uploadStatus');
+
+        var file = fileInput.files[0];
+        if (file) {
+            var formData = new FormData();
+            formData.append('file', file);
+
+            fetch('/upload', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    uploadStatus.innerHTML = 'Datei erfolgreich empfangen.';
+                    uploadStatus.style.color = 'green';
+                } else {
+                    uploadStatus.innerHTML = 'Fehler beim Hochladen';
+                    uploadStatus.style.color = 'red';
+                }
+            })
+            .catch(error => {
+                uploadStatus.innerHTML = 'Fehler beim Hochladen';
+                uploadStatus.style.color = 'red';
+            });
+        }
+    }
+</script>
 
 
 <!-- Impressum Button -->
@@ -700,34 +910,60 @@
   <!-- JavaScript to handle calculator logic and dynamic button display -->
 <script>
     document.addEventListener('DOMContentLoaded', function() {
-        // Get DOM elements
         var lengthInput = document.getElementById('length');
         var widthInput = document.getElementById('width');
         var materialSelect = document.getElementById('material');
-        var stripeButtons = document.querySelectorAll('.stripe-buttons stripe-buy-button');
+        var stripeBuyButtons = document.querySelectorAll('stripe-buy-button');
 
-        // Function to update Stripe button visibility
-        function updateButtonVisibility() {
+        function updateOptions() {
+            var length = parseInt(lengthInput.value);
+            var width = parseInt(widthInput.value);
             var selectedMaterial = materialSelect.value;
-            stripeButtons.forEach(function(button) {
-                var buttonMaterial = button.getAttribute('button-idx');
-                if (buttonMaterial === selectedMaterial) {
-                    button.style.display = 'block';
-                } else {
-                    button.style.display = 'none';
-                }
-            });
-        }
+        
+        // Clear existing options
+        materialSelect.innerHTML = '';
+        
+        // Define material options based on criteria
+        var materialOptions = [
+            { value: 'A1', label: 'Sperrholz Pappel 4 mm (max 300x300 mm)', maxDim: 300 },
+            { value: 'A2', label: 'Sperrholz Pappel 4 mm (max 600x600 mm, min 301 mm, max 600 mm)', minDim: 301, maxDim: 600 },
+            { value: 'B1', label: 'Plexiglas XT 4mm Farblos 0A000 (max 250x250 mm)', maxDim: 250 },
+            { value: 'B2', label: 'Plexiglas XT 4mm Farblos 0A000 (max 500x500 mm, min 251 mm, max 500 mm)', minDim: 251, maxDim: 500 }
+        ];
+        
+        // Filter and add valid options to dropdown
+        materialOptions.forEach(function(option) {
+            var optionElement = document.createElement('option');
+            optionElement.value = option.value;
+            optionElement.textContent = option.label;
+            
+            var lengthValid = (option.minDim === undefined || length >= option.minDim) && (option.maxDim === undefined || length <= option.maxDim);
+            var widthValid = (option.minDim === undefined || width >= option.minDim) && (option.maxDim === undefined || width <= option.maxDim);
+            
+            if ((lengthValid && widthValid) || (option.value === 'A1' && length <= 300 && width <= 300) || (option.value === 'B1' && length <= 250 && width <= 250) || (option.value === 'A2' && (length >= 301 && length <= 600) || (width >= 301 && width <= 600)) || (option.value === 'B2' && (length >= 251 && length <= 500) || (width >= 251 && width <= 500))) {
+                materialSelect.appendChild(optionElement);
+            }
+        });
+        
+        // Show/hide the appropriate Stripe buy button
+        stripeBuyButtons.forEach(function(button) {
+            button.style.display = 'none';
+            if (selectedMaterial === button.getAttribute('button-idx')) {
+                button.style.display = 'block';
+            }
+        });
+    }
+    
+    // Event listeners for input changes and material selection
+    lengthInput.addEventListener('input', updateOptions);
+    widthInput.addEventListener('input', updateOptions);
+    materialSelect.addEventListener('input', updateOptions);
+    
+    // Initial options setup
+    updateOptions();
+});
 
-        // Event listeners for input changes
-        lengthInput.addEventListener('input', updateButtonVisibility);
-        widthInput.addEventListener('input', updateButtonVisibility);
-        materialSelect.addEventListener('change', updateButtonVisibility);
 
-        // Initial button visibility setup
-        updateButtonVisibility();
-    });
-	
 </script>
 
 <script>
@@ -750,5 +986,3 @@
 
 </body>
 </html>
-
-
