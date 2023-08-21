@@ -212,6 +212,14 @@
 
 }
 
+.calculator-dropdown {
+    width: 10%; /* You can adjust the width percentage as needed */
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box; /* This ensures that padding and border are included in the width */
+}
 
 .stripe-buy-button {
     display: block;
@@ -606,6 +614,7 @@ label[for="fileInput"] {
 
 
 
+
 </style>
 
     </style>
@@ -620,7 +629,8 @@ label[for="fileInput"] {
         <div class="poster-container">
             <img class="poster-image" src="{{ url_for('static', filename='poster1.png') }}" alt="Poster 1">
         </div>
-		
+		<script src="https://js.stripe.com/v3/"></script>
+
 		
 		
 		
@@ -738,7 +748,6 @@ label[for="fileInput"] {
             });
         });
     </script>
-</head>
 <body>
     <video id="video-background" autoplay muted loop>
         <source src="{{ url_for('static', filename='video.mp4') }}" type="video/mp4">
@@ -766,11 +775,13 @@ label[for="fileInput"] {
         
  
 
-    <script async src="https://js.stripe.com/v3/buy-button.js"></script>
 
 
 
 
+
+</body>
+</html>
 
 
 
@@ -909,16 +920,16 @@ label[for="fileInput"] {
 
   <!-- JavaScript to handle calculator logic and dynamic button display -->
 <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        var lengthInput = document.getElementById('length');
-        var widthInput = document.getElementById('width');
-        var materialSelect = document.getElementById('material');
-        var stripeBuyButtons = document.querySelectorAll('stripe-buy-button');
-
-        function updateOptions() {
-            var length = parseInt(lengthInput.value);
-            var width = parseInt(widthInput.value);
-            var selectedMaterial = materialSelect.value;
+document.addEventListener('DOMContentLoaded', function() {
+    // Get DOM elements
+    var lengthInput = document.getElementById('length');
+    var widthInput = document.getElementById('width');
+    var materialSelect = document.getElementById('material');
+    
+    // Update material options in real-time
+    function updateMaterialOptions() {
+        var length = parseInt(lengthInput.value);
+        var width = parseInt(widthInput.value);
         
         // Clear existing options
         materialSelect.innerHTML = '';
@@ -940,29 +951,22 @@ label[for="fileInput"] {
             var lengthValid = (option.minDim === undefined || length >= option.minDim) && (option.maxDim === undefined || length <= option.maxDim);
             var widthValid = (option.minDim === undefined || width >= option.minDim) && (option.maxDim === undefined || width <= option.maxDim);
             
-            if ((lengthValid && widthValid) || (option.value === 'A1' && length <= 300 && width <= 300) || (option.value === 'B1' && length <= 250 && width <= 250) || (option.value === 'A2' && (length >= 301 && length <= 600) || (width >= 301 && width <= 600)) || (option.value === 'B2' && (length >= 251 && length <= 500) || (width >= 251 && width <= 500))) {
+            if ((lengthValid && widthValid) || (option.value === 'A1' && length <= 300 && width <= 300) || (option.value === 'B1' && length <= 250 && width <= 250) || (option.value === 'A2' && (length >= 301 || width >= 301)) || (option.value === 'B2' && (length >= 251 || width >= 251))) {
                 materialSelect.appendChild(optionElement);
-            }
-        });
-        
-        // Show/hide the appropriate Stripe buy button
-        stripeBuyButtons.forEach(function(button) {
-            button.style.display = 'none';
-            if (selectedMaterial === button.getAttribute('button-idx')) {
-                button.style.display = 'block';
             }
         });
     }
     
-    // Event listeners for input changes and material selection
-    lengthInput.addEventListener('input', updateOptions);
-    widthInput.addEventListener('input', updateOptions);
-    materialSelect.addEventListener('input', updateOptions);
+	
+	
+	
+    // Event listeners for input changes
+    lengthInput.addEventListener('input', updateMaterialOptions);
+    widthInput.addEventListener('input', updateMaterialOptions);
     
-    // Initial options setup
-    updateOptions();
+    // Initial material options setup
+    updateMaterialOptions();
 });
-
 
 </script>
 
@@ -980,9 +984,7 @@ label[for="fileInput"] {
 
 
 
+</head>
 
 
 
-
-</body>
-</html>
