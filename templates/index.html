@@ -519,6 +519,33 @@
 	
 	
 	
+	/* FAQ Button Styling */
+.faq-button {
+    display: block;
+    margin: 20px auto;
+    padding: 10px 20px;
+    font-size: 18px;
+    background-color: #003049;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* FAQ Field Styling */
+.faq-field {
+    display: none;
+    background-color: rgba(0, 0, 0, 0.7);
+    border-radius: 10px;
+    padding: 20px;
+    margin: 20px auto;
+    color: white;
+    max-width: 70%;
+    text-align: center;
+}
+
+
+	
 	
 	
 	
@@ -603,6 +630,10 @@ label[for="fileInput"] {
   font-size: 18px; /* You can adjust the font size as needed */
   font-weight: bold;
 }
+
+.uploadButton {
+  margin-top: 10px; /* Add space to the top */
+  margin-bottom: 20px; /*
 
 
 
@@ -791,7 +822,8 @@ label[for="fileInput"] {
     
 <div class="laser-fields">
 	
-	
+	    <p style="text-align: center; font-size: 20px;">Die passenden Materialien für die Größe Ihres Artikels werden automatisch generiert. Die vollständige Liste finden Sie hier:</p>
+
 	    <!-- Add upload button -->
     <label for="fileInput">Datei hochladen:</label>
 	
@@ -850,6 +882,8 @@ label[for="fileInput"] {
 </div>
 	
       <div class="scan-fields">
+	     <p style="text-align: center; font-size: 20px;">	  Wir erstellen 3D-Scans von kleinen bis mittelgroßen Objekten. Diese Scans werden in CAD-Dateien umgewandelt. Sie können mit unserem Laserschneider, 3D-Drucker oder CNC-Fräse nachgebildet werden. Ein Beispiel für die von uns unterstützten Artikeltypen finden Sie hier:
+</p>
     <label for="scanService">Wählen Sie den Scan-Service:</label>
     <select id="scanService" class="calculator-field">
         <option value="normal">Normaler Scan</option>
@@ -863,19 +897,22 @@ label[for="fileInput"] {
 </div>
 
 
-    <div class="bike-fields">
-        <label for="bikeService">Wählen Sie den Service:</label>
-        <select id="bikeService"  class="calculator-field">
-            <option value="general">Allgemeiner Service</option>
-            <option value="brakes">Bremsen einstellen und ähnliches</option>
-        </select>
-        <div class="bike-buttons">
-            <script async src="https://js.stripe.com/v3/buy-button.js"></script>
-            <stripe-buy-button buy-button-id="buy_btn_1Nhhs3Egtx1au46GUtz7L8Oz" publishable-key="pk_live_51Lxm6sEgtx1au46GHhDtjk3JZ04OaA8p7T6xM4lQFLxfbPotRsuT4AhoM4WA0myCsirZeQN32vnUvUSmn1zVyD3m00docojbx7"></stripe-buy-button>
-            <stripe-buy-button buy-button-id="buy_btn_1NhhvMEgtx1au46Gq688Pa97" publishable-key="pk_live_51Lxm6sEgtx1au46GHhDtjk3JZ04OaA8p7T6xM4lQFLxfbPotRsuT4AhoM4WA0myCsirZeQN32vnUvUSmn1zVyD3m00docojbx7"></stripe-buy-button>
-        </div>
+<div class="bike-fields">
+    <p style="text-align: center; font-size: 20px;">In seinem vorherigen Job war unser Mechaniker der einzige Mechaniker für ein Mikromobilitäts-Sharing-Unternehmen mit einer Flotte von allein <span style="color: orange;">2000</span> <span style="color: orange;">Zweirädern</span>. Gerne bietet er einige Reparaturen in unserer Leopoldstätter Werkstatt an.</p>
+    <label for="bikeService">Wählen Sie den Service:</label>
+    <select id="bikeService" class="calculator-field">
+        <option value="general">Allgemeiner Service</option>
+        <option value="brakes">Bremsen einstellen und ähnliches</option>
+    </select>
+    <div class="bike-buttons">
+        <script async src="https://js.stripe.com/v3/buy-button.js"></script>
+        <stripe-buy-button buy-button-id="buy_btn_1Nhhs3Egtx1au46GUtz7L8Oz" publishable-key="pk_live_51Lxm6sEgtx1au46GHhDtjk3JZ04OaA8p7T6xM4lQFLxfbPotRsuT4AhoM4WA0myCsirZeQN32vnUvUSmn1zVyD3m00docojbx7"></stripe-buy-button>
+        <stripe-buy-button buy-button-id="buy_btn_1NhhvMEgtx1au46Gq688Pa97" publishable-key="pk_live_51Lxm6sEgtx1au46GHhDtjk3JZ04OaA8p7T6xM4lQFLxfbPotRsuT4AhoM4WA0myCsirZeQN32vnUvUSmn1zVyD3m00docojbx7"></stripe-buy-button>
     </div>
 </div>
+
+
+
 
 <!-- stripe buttons -->
 
@@ -980,6 +1017,35 @@ updateScanService(); // Adds the new function for scan service.
         }
     }
 </script>
+
+<script>
+function toggleFAQ() {
+    var faqField = document.getElementById('faqField');
+    if (faqField.style.display === 'block') {
+        faqField.style.display = 'none';
+    } else {
+        faqField.style.display = 'block';
+    }
+}
+
+
+</script>
+
+
+
+
+
+
+
+
+<button class="faq-button" onclick="toggleFAQ()">FAQ</button>
+
+<!-- FAQ Field -->
+<div class="faq-field" id="faqField">
+    <p>Your FAQ content here</p>
+    <!-- You can add more questions and answers -->
+</div>
+
 
 
 <!-- Impressum Button -->
