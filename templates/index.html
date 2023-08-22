@@ -212,14 +212,6 @@
 
 }
 
-.calculator-dropdown {
-    width: 10%; /* You can adjust the width percentage as needed */
-    padding: 10px;
-    margin-bottom: 15px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    box-sizing: border-box; /* This ensures that padding and border are included in the width */
-}
 
 .stripe-buy-button {
     display: block;
@@ -614,7 +606,6 @@ label[for="fileInput"] {
 
 
 
-
 </style>
 
     </style>
@@ -629,8 +620,7 @@ label[for="fileInput"] {
         <div class="poster-container">
             <img class="poster-image" src="{{ url_for('static', filename='poster1.png') }}" alt="Poster 1">
         </div>
-		<script src="https://js.stripe.com/v3/"></script>
-
+		
 		
 		
 		
@@ -748,6 +738,7 @@ label[for="fileInput"] {
             });
         });
     </script>
+</head>
 <body>
     <video id="video-background" autoplay muted loop>
         <source src="{{ url_for('static', filename='video.mp4') }}" type="video/mp4">
@@ -775,13 +766,11 @@ label[for="fileInput"] {
         
  
 
+    <script async src="https://js.stripe.com/v3/buy-button.js"></script>
 
 
 
 
-
-</body>
-</html>
 
 
 
@@ -790,8 +779,16 @@ label[for="fileInput"] {
 
         <!-- Price Calculator Fields -->
 <div class="calculator-container">
-    <div class="calculator-fields">
-	
+    <!-- New Service Selection Dropdown -->
+    <label for="serviceSelection" >Ausgewählter Dienst:</label>
+    <select id="serviceSelection"  class="calculator-field">
+        <option value="laser">Lasergravur und -schneiden</option>
+        <option value="3dPrint">3D-Modellierung / 3D-Druck - 3Dprintwien.at</option>
+        <option value="3dScan">3D-Scanning</option>
+        <option value="bike">Fahrrad-/Rollerwerkstatt</option>
+    </select>
+    
+<div class="laser-fields">
 	
 	
 	    <!-- Add upload button -->
@@ -801,8 +798,7 @@ label[for="fileInput"] {
     <button class="uploadButton"  id="upload_btn" type="button" onclick="uploadFile()">Hochladen</button>
 
     <!-- Display upload status message -->
-    <div id="uploadStatus"></div>
-</div>
+		<div id="uploadStatus"></div>
 
 
         <label for="length">Length (mm):</label>
@@ -819,18 +815,7 @@ label[for="fileInput"] {
             <option value="B2">Plexiglas XT 4mm Farblos 0A000 (max 500x500 mm)</option>
     <option value="" disabled selected>Select Material</option>
 </select>
-
-        </select>
-
-
-
-
-<!-- stripe buttons -->
-
-
-
-        <!-- Stripe Buy Buttons (Hidden by Default) -->
-        <div class="stripe-buttons">
+<div class="stripe-buttons">
             <!-- Stripe Buy Button for Material A1 -->
             <stripe-buy-button
                 button-idx="A1"
@@ -859,9 +844,109 @@ label[for="fileInput"] {
                 publishable-key="pk_live_51Lxm6sEgtx1au46GHhDtjk3JZ04OaA8p7T6xM4lQFLxfbPotRsuT4AhoM4WA0myCsirZeQN32vnUvUSmn1zVyD3m00docojbx7"
             ></stripe-buy-button>
         </div>
+
+        </select>
+</div>
+	
+      <div class="scan-fields">
+    <label for="scanService">Wählen Sie den Scan-Service:</label>
+    <select id="scanService" class="calculator-field">
+        <option value="normal">Normaler Scan</option>
+        <option value="extended">Erweiterter Scan</option>
+    </select>
+    <div class="scan-buttons">
+        <script async src="https://js.stripe.com/v3/buy-button.js"></script>
+        <stripe-buy-button buy-button-id="buy_btn_1NhhfDEgtx1au46GbxegSbLY" publishable-key="pk_live_51Lxm6sEgtx1au46GHhDtjk3JZ04OaA8p7T6xM4lQFLxfbPotRsuT4AhoM4WA0myCsirZeQN32vnUvUSmn1zVyD3m00docojbx7"></stripe-buy-button>
+        <stripe-buy-button buy-button-id="buy_btn_1NhiQPEgtx1au46GowKRNiET" publishable-key="pk_live_51Lxm6sEgtx1au46GHhDtjk3JZ04OaA8p7T6xM4lQFLxfbPotRsuT4AhoM4WA0myCsirZeQN32vnUvUSmn1zVyD3m00docojbx7"></stripe-buy-button>
     </div>
 </div>
 
+
+    <div class="bike-fields">
+        <label for="bikeService">Wählen Sie den Service:</label>
+        <select id="bikeService"  class="calculator-field">
+            <option value="general">Allgemeiner Service</option>
+            <option value="brakes">Bremsen einstellen und ähnliches</option>
+        </select>
+        <div class="bike-buttons">
+            <script async src="https://js.stripe.com/v3/buy-button.js"></script>
+            <stripe-buy-button buy-button-id="buy_btn_1Nhhs3Egtx1au46GUtz7L8Oz" publishable-key="pk_live_51Lxm6sEgtx1au46GHhDtjk3JZ04OaA8p7T6xM4lQFLxfbPotRsuT4AhoM4WA0myCsirZeQN32vnUvUSmn1zVyD3m00docojbx7"></stripe-buy-button>
+            <stripe-buy-button buy-button-id="buy_btn_1NhhvMEgtx1au46Gq688Pa97" publishable-key="pk_live_51Lxm6sEgtx1au46GHhDtjk3JZ04OaA8p7T6xM4lQFLxfbPotRsuT4AhoM4WA0myCsirZeQN32vnUvUSmn1zVyD3m00docojbx7"></stripe-buy-button>
+        </div>
+    </div>
+</div>
+
+<!-- stripe buttons -->
+
+
+
+        <!-- Stripe Buy Buttons (Hidden by Default) -->
+        
+    </div>
+</div>
+
+
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    var serviceSelection = document.getElementById('serviceSelection');
+    var laserFields = document.querySelector('.laser-fields');
+    var bikeFields = document.querySelector('.bike-fields');
+    var scanFields = document.querySelector('.scan-fields');
+    var bikeButtons = document.querySelectorAll('.bike-buttons stripe-buy-button');
+
+    function updateService() {
+        var selectedService = serviceSelection.value;
+
+        laserFields.style.display = 'none';
+        bikeFields.style.display = 'none';
+        scanFields.style.display = 'none';
+
+        if (selectedService === 'laser') {
+            laserFields.style.display = 'block';
+        } else if (selectedService === '3dPrint') {
+            window.location.href = 'https://3dprintwien.ermine.at';
+        } else if (selectedService === '3dScan') {
+            scanFields.style.display = 'block';
+        } else if (selectedService === 'bike') {
+            bikeFields.style.display = 'block';
+        }
+    }
+
+    function updateBikeService() {
+        var selectedBikeService = document.getElementById('bikeService').value;
+        bikeButtons.forEach(function(button, idx) {
+            button.style.display = (idx === 0 && selectedBikeService === 'general') || (idx === 1 && selectedBikeService === 'brakes') ? 'block' : 'none';
+        });
+    }
+
+    serviceSelection.addEventListener('change', updateService);
+    document.getElementById('bikeService').addEventListener('change', updateBikeService);
+
+    // Initial setup
+    updateService();
+});
+
+function updateScanService() {
+    var selectedScanService = document.getElementById('scanService').value;
+    scanButtons.forEach(function(button, idx) {
+        button.style.display = (idx === 0 && selectedScanService === 'normal') || (idx === 1 && selectedScanService === 'extended') ? 'block' : 'none';
+    });
+}
+
+// Assuming that you have serviceSelection code and updateService() function above for the main service selection.
+
+// Add these lines:
+document.getElementById('scanService').addEventListener('change', updateScanService);
+
+// If you have defined "scan-buttons" as a class for the div containing the scan buttons, you can use the following line to select them:
+var scanButtons = document.querySelectorAll('.scan-buttons stripe-buy-button');
+
+// Initial setup
+updateScanService(); // Adds the new function for scan service.
+
+
+</script>
 
 <script>
     function uploadFile() {
@@ -921,18 +1006,18 @@ label[for="fileInput"] {
   <!-- JavaScript to handle calculator logic and dynamic button display -->
 <script>
 document.addEventListener('DOMContentLoaded', function() {
-    // Get DOM elements
     var lengthInput = document.getElementById('length');
     var widthInput = document.getElementById('width');
     var materialSelect = document.getElementById('material');
-    
-    // Update material options in real-time
-    function updateMaterialOptions() {
+    var stripeBuyButtons = document.querySelectorAll('stripe-buy-button');
+
+    function updateOptions() {
         var length = parseInt(lengthInput.value);
         var width = parseInt(widthInput.value);
-        
+        var selectedMaterial = materialSelect.value;
+    
         // Clear existing options
-        materialSelect.innerHTML = '';
+        materialSelect.innerHTML = '<option value="" disabled selected>Select Material</option>'; // Default option
         
         // Define material options based on criteria
         var materialOptions = [
@@ -948,25 +1033,34 @@ document.addEventListener('DOMContentLoaded', function() {
             optionElement.value = option.value;
             optionElement.textContent = option.label;
             
-            var lengthValid = (option.minDim === undefined || length >= option.minDim) && (option.maxDim === undefined || length <= option.maxDim);
-            var widthValid = (option.minDim === undefined || width >= option.minDim) && (option.maxDim === undefined || width <= option.maxDim);
-            
-            if ((lengthValid && widthValid) || (option.value === 'A1' && length <= 300 && width <= 300) || (option.value === 'B1' && length <= 250 && width <= 250) || (option.value === 'A2' && (length >= 301 || width >= 301)) || (option.value === 'B2' && (length >= 251 || width >= 251))) {
+            if ((option.minDim === undefined || (length >= option.minDim && width >= option.minDim)) && (option.maxDim === undefined || (length <= option.maxDim && width <= option.maxDim))) {
                 materialSelect.appendChild(optionElement);
+            }
+        });
+        
+        // Re-select the previously selected material if it is still valid
+        if (materialSelect.querySelector('option[value="' + selectedMaterial + '"]')) {
+            materialSelect.value = selectedMaterial;
+        }
+        
+        // Show/hide the appropriate Stripe buy button
+        stripeBuyButtons.forEach(function(button) {
+            button.style.display = 'none';
+            if (materialSelect.value === button.getAttribute('button-idx')) {
+                button.style.display = 'block';
             }
         });
     }
     
-	
-	
-	
-    // Event listeners for input changes
-    lengthInput.addEventListener('input', updateMaterialOptions);
-    widthInput.addEventListener('input', updateMaterialOptions);
+    // Event listeners for input changes and material selection
+    lengthInput.addEventListener('input', updateOptions);
+    widthInput.addEventListener('input', updateOptions);
+    materialSelect.addEventListener('change', updateOptions); // Use 'change' event instead of 'input'
     
-    // Initial material options setup
-    updateMaterialOptions();
+    // Initial options setup
+    updateOptions();
 });
+
 
 </script>
 
@@ -984,7 +1078,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 
-</head>
 
 
 
+
+</body>
+</html>
