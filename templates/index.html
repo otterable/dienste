@@ -4,16 +4,17 @@
     <title>Ermine.at - Dienste</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
     <style>
-        body {
-            margin: 0;
-            padding: 0;
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-            background-color: black;
-            color: white;
-            font-family: Arial, sans-serif;
-        }
+body {
+    font-size: 18px;
+    line-height: 1.6;
+    color: #333;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: black;
+    color: white;
+}
+
+
 
         .logo-container {
             text-align: center;
@@ -32,18 +33,34 @@
             padding: 20px 0;
         }
 
-        .button {
-            font-weight: bold;
-            border: none;
-            padding: 20px 40px;
-            margin: 5px;
-            cursor: pointer;
-            font-size: 20px;
-            text-decoration: none;
-            display: inline-block;
-            border-radius: 10px;
-            transition: background-color 0.3s ease-in-out;
-        }
+    .button {
+    font-weight: bold;
+    border: none;
+    padding: 20px 40px;
+    margin: 5px;
+    cursor: pointer;
+    font-size: 20px;
+    text-decoration: none;
+    display: inline-block;
+    border-radius: 10px;
+    transition: background-color 0.3s ease-in-out;
+}
+
+/* For tablets and medium-sized screens (between 768px and 1023px) */
+@media screen and (max-width: 1023px) and (min-width: 768px) {
+    .button {
+        padding: 15px 30px;
+        font-size: 18px;
+    }
+}
+
+/* For mobile screens (less than 767px) */
+@media screen and (max-width: 767px) {
+    .button {
+        padding: 10px 20px;
+        font-size: 16px;
+    }
+}
 
         /* Button colors */
         .button-color-1 { background-color: #003049; color: white; }
@@ -54,6 +71,19 @@
         .button-color-6 { background-color: #9CB380; color: black; }
         .button-color-7 { background-color: #1B98E0; color: black; }
         .button-color-8 { background-color: #2E933C; color: black; }
+		
+		
+		
+		.button-color-1:hover { background-color: #002239; }
+		.button-color-2:hover { background-color: #B61818; }
+		.button-color-3:hover { background-color: #D66A00; }
+		.button-color-4:hover { background-color: #F5AF19; }
+		.button-color-5:hover { background-color: #D9CF9F; }
+		.button-color-6:hover { background-color: #87A266; }
+		.button-color-7:hover { background-color: #1578B6; }
+		.button-color-8:hover { background-color: #1C742A; }
+
+
 
         .audio-container {
             width: calc(16.66% - 20px); /* Six columns on larger screens */
@@ -87,7 +117,7 @@
         @media (max-width: 768px) {
 		
 			.logo {
-                max-width: 60%; /* Increased size for mobile */
+                max-width: 40%; /* Increased size for mobile */
             }
 		
             .audio-container {
@@ -119,6 +149,7 @@
 .calculator-field {
   width: 80%;
   padding: 15px;
+  padding-bottom: 19.5px;
   margin-bottom: 15px;
   border: none;
   border-radius: 10px;
@@ -148,59 +179,7 @@
 }
 }
 	
-	}
-
-}
-@media (min-width: 769px) {
-.calculator-container {
-    max-width: 400px;
-    margin: 0 auto;
-    padding: 20px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
-    background-color: #fff;
-}
-
 	
-	
-
-}
-/* Mobile layout */
-@media (max-width: 768px) {
-    .calculator-container {
-        position: relative;
-        width: 90%; /* 50% - 4% - 4% */
-        margin: 0 auto; /* Center horizontally */
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        border-radius: 10px;
-        overflow: hidden;
-        background-color: rgba(0, 0, 0, 0.7); /* Add background color */
-        padding: 20px;
-        box-sizing: border-box;
-    }
-}
-		
-		@media (min-width: 769px) {
-		.calculator-container {
-    position: relative;
-    width: 42%; /* Take up 90% of the screen width */
-    margin: 0 auto; /* Center horizontally */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    border-radius: 10px;
-    overflow: hidden;
-    background-color: rgba(0, 0, 0, 0.7); /* Add background color */
-    padding: 13px;
-    box-sizing: border-box;
-}
-}	
-
 
 .calculator-input {
     width: 10%;
@@ -238,38 +217,7 @@
 		
 		
 		
-		
-		.image-container {
-            text-align: center;
-            margin-bottom: 20px;
-            box-sizing: border-box; /* Include padding and borders in the width calculation */
-        }
-        
-        .image-container img {
-            max-width: 100%;
-            height: auto;
-        }
-        
-        /* Mobile layout */
-        @media (max-width: 768px) {
-            .image-container {
-                width: 100%; /* Each image takes 100% width for one column */
-                margin-right: 0; /* Remove margin to ensure full width */
-                float: none; /* Reset float for single column display */
-                clear: both; /* Clear float after each image */
-            }
-        }
-        
-                /* Desktop layout */
-        @media (min-width: 769px) {
-            .image-container {
-                width: calc(50% - 20px); /* Each image takes 50% width for two columns, accounting for margins */
-                margin: 10px;
-                display: inline-block; /* Display images inline */
-                vertical-align: top;
-                text-align: center;
-            }
-        }
+	
 		
 		
 		
@@ -277,48 +225,121 @@
 		
 		
 		
+.buttons-container {
+    display: flex;
+    justify-content: space-between;
+    width: 70%;
+    margin: 0 auto;
+    gap: 10px;
+}
+
+.faq-button, .impressum-button, .whatsapp-button {
+    background-color: #FF9999;  /* A lightened shade for demonstration */
+    color: white;
+    padding: 20px;
+    font-size: 18px;
+    border-radius: 5px;
+    transition: background-color 0.5s ease;  /* Provides the fade effect */
+    border: none;
+    cursor: pointer;
+    margin-bottom: 20px;
+	margin-top: 20px;	/* Adds a gap at the bottom of the buttons */
+}
+
+
+.faq-button:hover, .impressum-button:hover {
+    background-color: #FF6666;  /* A slightly darkened shade */
+}
+
+.faq-button:active, .impressum-button:active {
+    background-color: #FF3333;  /* Even more darkened shade for click effect */
+}
+
 		
 		
-		
-		
-		
-		
-		
+		/* Common styles for calculator-container and showcase-container */
+
+.container {
+    margin: 2% auto; /* This will provide dynamic spacing based on screen size */
+    border-radius: 10px;
+    overflow: hidden;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.7);
+    max-width: 90%;
+    box-sizing: border-box;
+}
+
+.calculator-input {
+    width: 100%;
+    padding: 20px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.showcase-image {
+    width: auto;
+    height: 100%;
+    max-width: 100%;
+    opacity: 0;
+    animation: fade 4s infinite;
+    object-fit: contain;
+    border-radius: 10px;
+}
+
+.main-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 96%;  /* Adjust this as needed */
+}
+
+
+
+.calculator-container,
+.showcase-container {
+    flex: 1; /* Take available space */
+    box-sizing: border-box; /* Ensure padding doesn't affect width */
+    padding: 20px; /* Inner padding */
+    background-color: rgba(0, 0, 0, 0.7);
+    border-radius: 10px;
+    max-width: 48%; /* Max width to account for the gap */
+	    margin-bottom: 10px;
+
+}
+
+/* On smaller screens, they stack */
+@media (max-width: 768px) {
+    .calculator-container,
+    .showcase-container {
+        max-width: 100%;
+    }
+}
+
+
+/* On smaller screens, they stack */
+@media (max-width: 768px) {
+    .main-wrapper {
+        display: flex;
+        flex-direction: column;
+        gap: 2%;
+    }
+
+    .calculator-container,
+    .showcase-container {
+        width: 100%;
+    }
+}
+
 		
 		
 		
         /* Showcase container styles */
- .showcase-container {
-    position: relative;
-    width: 42%; /* 50% - 4% - 4% */
-    height: 100%; /* Set to 100% to match the grey box height */
-    overflow: hidden;
-    float: left;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0 4%; /* Add 4% gap on left and right sides */
-    border-radius: 10px; /* Add round corners */
-    overflow: hidden; /* Hide overflowing content */
-	margin-bottom: 20px; /* Maintain the same margin as calculator */
 
-}
-
-/* Showcase container styles for mobile */
-@media (max-width: 768px) {
-    .showcase-container {
-        width: 90%; /* Take up 90% of the screen width */
-        border-radius: 15px; /* Add rounded edges */
-        display: flex; /* Add flex display for vertical centering */
-        align-items: center; /* Vertically center the content */
-        justify-content: center; /* Horizontally center the content */
-        margin-left: auto; /* Center the showcase perfectly */
-        margin-right: auto; /* Center the showcase perfectly */
-		        transform: translateX(-50%); /* Adjust for center alignment */
-				left: 50%
-
-    }
-}
         .showcase-image {
             width: auto;
             height: 100%;
@@ -436,13 +457,75 @@
 
     .info-title {
         font-weight: bold;
+        font-size: 28px;
+        margin: 10px;
+    }
+
+ .info-subtitle {
+        font-weight: bold;
         font-size: 24px;
-        margin-bottom: 10px;
+        margin: 10px;
     }
 
     .info-text {
-        font-size: 22px; /* Adjust the font size as needed */
+        font-size: 20px; /* Adjust the font size as needed */
     }
+		
+		
+		
+		
+		
+		/* ... Other styles ... */
+
+/* Mobile adjustments placed at the end of your CSS */
+@media screen and (max-width: 767px) {
+    body .info-title {
+        font-size: 22px !important;
+    }
+
+    body .info-subtitle {
+        font-size: 20px !important;
+    }
+
+    body .info-text {
+        font-size: 16px !important;
+
+
+    /* Adjusting for the calculator and other elements as needed */
+    body .calculator-field,
+    body #material,
+    body .calculator-input,
+    body .stripe-buy-button {
+        font-size: 14px !important;
+    }
+
+    body .audio-info {
+        font-size: 18px !important;
+    }
+
+    body .button {
+        font-size: 14px !important;
+    }
+}
+
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		
 		/* Mobile layout */
 @media (max-width: 768px) {
@@ -450,7 +533,7 @@
 
     /* Reduce the size of the logo by half */
     .logo {
-        max-width: 50%; /* Adjust the width as needed */
+        max-width: 30%; /* Adjust the width as needed */
     }
 
     /* ... (other styles) ... */
@@ -470,9 +553,18 @@
 
         /* ... (other styles) ... */
     }
+	
+	
+	
+	
+	
+	
+	
+	}
+	
 
     /* Desktop layout */
-    @media (min-width: 769px) {
+    @media (min-width: 768px) {
         /* ... (other styles) ... */
 
         /* Reduce the size of posters to 30% on desktop */
@@ -487,17 +579,7 @@
 	
 	   /* Impressum Button Styling */
     /* Center the Impressum Button */
-    .impressum-button {
-        display: block;
-        margin: 20px auto;
-        padding: 10px 20px;
-        font-size: 18px;
-        background-color: #003049;
-        color: white;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-    }
+
 
 
     /* Impressum Field Styling */
@@ -518,19 +600,7 @@
     }
 	
 	
-	
-	/* FAQ Button Styling */
-.faq-button {
-    display: block;
-    margin: 20px auto;
-    padding: 10px 20px;
-    font-size: 18px;
-    background-color: #003049;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
+
 
 /* FAQ Field Styling */
 .faq-field {
@@ -544,9 +614,24 @@
     text-align: center;
 }
 
+  /* Impressum Field Styling */
+    .whatssapp-Field {
+        display: none;
+        background-color: rgba(0, 0, 0, 0.7);
+        border-radius: 10px;
+        padding: 20px;
+        margin: 20px auto;
+        color: white;
+        max-width: 70%;
+        text-align: center;
+    }
 
 	
 	
+	   /* Show Impressum Field when toggled */
+    .whatsapp-visible {
+        display: block;
+    }
 	
 	
 	
@@ -572,7 +657,7 @@ label {
 
 /* Style the "Datei hochladen" label */
 #file-upload-label {
-  font-size: 18px;
+  font-size: 20px;
   font-weight: bold;
   margin-bottom: 5px;
 }
@@ -580,41 +665,23 @@ label {
 /* Style the dropdown menu */
 
 
-/* Style the Stripe buy buttons */
-stripe-buy-button {
-  display: none;
-  width: 100%;
-  text-align: center;
-  padding: 10px;
-  background-color: #007bff;
-  border: none;
-  border-radius: 10px;
-  color: white;
-  font-size: 16px;
-  cursor: pointer;
-}
 
-stripe-buy-button:hover {
-  background-color: #0056b3;
-}
 
-/* Style the labels */
-label {
-  font-size: 18px;
-  font-weight: bold;
-  display: block;
-  margin-bottom: 5px;
-}
+
 
 
 .uploadButton {
   background-color: orange;
   color: white;
   font-size: 16px;
-  padding: 10px 20px;
+  padding: 10px 0px;
   border-radius: 10px;
   border: none;
   cursor: pointer;
+  margin-top: 10px;
+  display: block;
+  margin: 10px auto 0 auto; 
+
 }
 
 .uploadButton:hover {
@@ -622,8 +689,10 @@ label {
 }
 
 #uploadStatus {
-  font-size: 24px; /* You can adjust the font size as needed */
+    font-weight: bold;
+    margin-bottom: 20px; 
 }
+
 
 
 label[for="fileInput"] {
@@ -636,6 +705,53 @@ label[for="fileInput"] {
   margin-bottom: 20px; /*
 
 
+.button-container2 {
+    display: flex;
+    justify-content: center;   /* This will horizontally center the items */
+    align-items: center;       /* This will vertically align the items in the center */
+    width: 100%;               /* Ensures the container takes the full width of its parent */
+    margin-top: 20px;          /* Adjust this value for spacing on top */
+    margin-bottom: 20px;       /* Adjust this value for spacing at the bottom */
+}
+
+.button-container2 .faq-button {
+    margin-right: 10px; /* Adjust this value for spacing between the buttons */
+}
+
+.button-container2 .impressum-button {
+    margin-left: 10px; /* Adjust this value for spacing between the buttons */
+}
+
+.button-container2 .whatsapp-button {
+    margin-left: 10px; /* Adjust this value for spacing between the buttons */
+}
+.expandable-section {
+    display: none; /* Hidden by default */
+    max-width: 72%;
+    margin: 20px auto;
+    text-align: center;
+}
+
+.expandable-content {
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 20px;
+    border-radius: 10px;
+    color: white;
+}
+
+.close-btn {
+    position: absolute;
+    right: 20px;
+    top: 10px;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.highlighted {
+    color: #f77f00;
+}
+
+
 
 </style>
 
@@ -645,7 +761,8 @@ label[for="fileInput"] {
         <div class="logo-container">
             <img class="logo" src="{{ url_for('static', filename='logo.png') }}" alt="Logo" id="logo">
         </div>
-		
+		        </div>
+
 		
 		       <!-- Add the poster image here -->
         <div class="poster-container">
@@ -656,30 +773,58 @@ label[for="fileInput"] {
 		
 		
         <div class="button-container">
+		
+		
+
             <!-- Assign unique class names to each button for color change -->
-            <a href="http://3dprintwien.ermine.at" class="button button-color-1">3D-Modellierung / 3D-Druck</a>
-			<a href="http://3dscanning.ermine.at" class="button button-color-1">3D-Scanning</a>
-            <a href="http://lasergravur.ermine.at" class="button button-color-2">Lasergravur und -schneiden</a>
-			<a href="http://fahrrad.ermine.at" class="button button-color-7">Fahrrad-/Rollerwerkstatt</a>
-			<a href="http://cncfrase.ermine.at" class="button button-color-3">CNC Fräse Teileerstellung</a>
-            <a href="http://beyondtouristtraps.ermine.at" class="button button-color-6">Reisegenerator für ruhige Orte</a>
-            <a href="http://soundscapes.ermine.at" class="button button-color-7">Weitere Projekte</a>
+       <a href="http://3dprintwien.ermine.at" class="button">3D-Modellierung / 3D-Druck</a>
+		<a href="http://3dscanning.ermine.at" class="button">3D-Scanning</a>
+		<a href="http://lasergravur.ermine.at" class="button">Lasergravur und -schneiden</a>
+		<a href="http://fahrrad.ermine.at" class="button">Fahrrad-/Rollerwerkstatt</a>
+		<a href="http://cncfrase.ermine.at" class="button">CNC Fräse Teileerstellung</a>
+		<a href="http://beyondtouristtraps.ermine.at" class="button">Reisegenerator für ruhige Orte</a>
+		<a href="http://soundscapes.ermine.at" class="button">Weitere Projekte</a>
+
         </div>
+		
+<div class="expandable-section">
+    <!-- Your content here -->
+    <div class="expandable-content">
+		(Klicken Sie auf jede Zeile, um sie anzuzeigen.)
+
+            <a href="http://boardgames.ermine.at" style="color:white;">
+                <p><span class="highlighted">Brettspiele!</span> Wir haben einige Brettspiele oder Erweiterungen erstellt.</p>
+            </a>
+        
+            <a href="http://songlooping.ermine.at" style="color:white;">
+                <p>Eine Website, die Loop-Punkte in einem Song findet und eine Endlosschleife erstellt (<span class="highlighted">Songlooping</span> - man kann nicht sagen, wo der Song beginnt und endet)</p>
+            </a>
+        
+            <a href="http://soundscapes.ermine.at" style="color:white;">
+                <p>Eine Website mit „<span class="highlighted">Soundscapes</span>“ – Umgebungsgeräuschen aller Art. Alles in Endlosschleife.</p>
+            </a>
+        
+    </div>
+</div>
+
+
+
+		
     </div>
 	
     <!-- Centered "poster3.png" image -->
 
 <div class="info-field">
-    <div class="info-title" style="font-size: 28px; font-weight: bold;">Wir sind eine kleine Werkstatt im Zentrum von Wien.</div>
-    <div class="info-subtitle" style="font-size: 24px; font-weight: bold;">Unsere Vorteile sind:</div>
+    <div class="info-title">Wir sind eine kleine Werkstatt im Zentrum von Wien.</div>
+    <div class="info-subtitle">Unsere Vorteile sind:</div>
     <div style="margin-top: 20px;"> <!-- Adding a gap between titles -->
         <div class="info-text">
-            <span style="color: #d62828; font-weight: bold; font-size:  35px; display: block;">Komfort:</span>
-            <span style="color: #f77f00; font-size: 24px;"><strong>Unser Service ist schnell.</strong></span> Die Bestellung kann sofort über unseren <span style="color: #f77f00; font-size: 24px;"><strong>Preisrechner</strong></span> aufgegeben werden. <span style="color: #f77f00; font-size: 24px;"><strong>Kein</strong></span> E-Mail-Versand hin und zurück, <span style="color: #f77f00; font-size: 24px;"><strong>keine</strong></span> Wartezeit auf Öffnungszeiten. Das ist der größte Vorteil, den wir Ihnen bieten.<br>
-            <span style="color: #d62828; font-weight: bold; font-size: 35px; display: block;">Preis:</span>
-            Unsere Preise sind <span style="color: #f77f00; font-size: 24px;"><strong>günstig</strong></span>, und das unabhängig von der Art des Auftrages.<br>
-            <span style="color: #d62828; font-weight: bold; font-size: 35px; display: block;">Leidenschaft:</span>
-            Wir, die beiden Gründer, sind bei allem, was wir tun, mit <span style="color: #f77f00; font-size: 24px;"><strong>Leidenschaft</strong></span> dabei. Sie machen Geschäfte direkt mit uns.
+            <div class="info-subtitle" style="color: #d62828; font-weight: bold; display: block;">Komfort:</div>
+            <span style="color: #f77f00;"><strong>Unser Service ist schnell.</strong></span> Die Bestellung kann sofort über unseren <span style="color: #f77f00;"><strong>Preisrechner</strong></span> aufgegeben werden. <span style="color: #f77f00;"><strong>Kein</strong></span> E-Mail-Versand hin und zurück, <span style="color: #f77f00;"><strong>keine</strong></span> Wartezeit auf Öffnungszeiten. Das ist der größte Vorteil, den wir Ihnen bieten.<br>
+            <div class="info-subtitle" style="color: #d62828; font-weight: bold; display: block;">Preis:</div>
+            Unsere Preise sind <span style="color: #f77f00;"><strong>günstig</strong></span>, und das unabhängig von der Art des Auftrages.<br>
+            <div class="info-subtitle" style="color: #d62828; font-weight: bold; display: block;">Leidenschaft:</div>
+            Wir, die beiden Gründer, sind bei allem, was wir tun, mit <span style="color: #f77f00;"><strong>Leidenschaft</strong></span> dabei. Sie machen Geschäfte direkt mit uns.
         </div>
     </div>
 </div>
@@ -687,12 +832,28 @@ label[for="fileInput"] {
 
 
 
+
     </div>
 </div>
 
 </div>
 
+<script>
+document.querySelector('.button[href="http://soundscapes.ermine.at"]').addEventListener('click', function(event) {
+    event.preventDefault();
+    let section = document.querySelector('.expandable-section');
+    if (section.style.display === "none" || !section.style.display) {
+        section.style.display = "block";
+    } else {
+        section.style.display = "none";
+    }
+});
 
+document.querySelector('.close-btn').addEventListener('click', function() {
+    document.querySelector('.expandable-section').style.display = 'none';
+});
+
+</script>
     
   <script>
     document.addEventListener('DOMContentLoaded', function() {
@@ -759,17 +920,94 @@ label[for="fileInput"] {
 	
     <script>
         // Randomly shuffle the button colors on page load
-        document.addEventListener('DOMContentLoaded', function() {
-            var buttons = document.querySelectorAll('.button');
-            var buttonColors = ['button-color-1', 'button-color-2', 'button-color-3', 'button-color-4', 'button-color-5', 'button-color-6', 'button-color-7', 'button-color-8'];
+function shuffleArray(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]]; // Swap elements
+    }
+}
 
-            buttons.forEach(function(button) {
-                var randomIndex = Math.floor(Math.random() * buttonColors.length);
-                button.classList.add(buttonColors[randomIndex]);
-            });
-        });
+document.addEventListener('DOMContentLoaded', function() {
+    var buttons = document.querySelectorAll('.button');
+    var buttonColors = ['button-color-1', 'button-color-2', 'button-color-3', 'button-color-4', 'button-color-5', 'button-color-6', 'button-color-7', 'button-color-8'];
+
+    shuffleArray(buttonColors); // Shuffle the array
+
+    buttons.forEach(function(button, index) {
+        button.classList.add(buttonColors[index]);
+    });
+});
+
+
     </script>
+	
+	<script>
+	buttons.forEach(function(button) {
+    button.addEventListener('click', function() {
+        // Remove the current color from the button
+        var currentColorClass = Array.from(button.classList).find(cls => buttonColors.includes(cls));
+        button.classList.remove(currentColorClass);
+        
+        // Choose a new color that's not the current one
+        var newColorClasses = buttonColors.filter(cls => cls !== currentColorClass);
+        var newColor = newColorClasses[Math.floor(Math.random() * newColorClasses.length)];
+        button.classList.add(newColor);
+    });
+});
+
+
+
+
+
+
+/* WhatsApp button styles */
+/* WhatsApp button styles */
+/* WhatsApp button styles */
+.whatsapp-button {
+    position: fixed;
+    bottom: 15px;
+    right: 15px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #25d366; /* WhatsApp color */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 1000;
+    transition: all 0.3s ease-in-out;
+}
+
+.whatsapp-button img {
+    width: 30px;
+    height: 30px;
+}
+
+/* Tooltip styles */
+.whatsapp-tooltip {
+    opacity: 0;
+    position: absolute;
+    bottom: 60px;
+    right: -20px;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    white-space: nowrap;
+    pointer-events: none;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.whatsapp-button:hover .whatsapp-tooltip,
+.whatsapp-button:focus .whatsapp-tooltip {
+opacity: 1;
+}
+
+</script>
+
 </head>
+
 <body>
     <video id="video-background" autoplay muted loop>
         <source src="{{ url_for('static', filename='video.mp4') }}" type="video/mp4">
@@ -777,7 +1015,12 @@ label[for="fileInput"] {
     </video>
     
  
+
 </div>
+
+
+
+
 
 
     <div id="content">
@@ -786,14 +1029,7 @@ label[for="fileInput"] {
             <img class="poster-image" src="{{ url_for('static', filename='poster2.png') }}" alt="Poster 2">
         </div>
 	
-        <!-- Image showcase container -->
-        <div class="showcase-container">
-		
-            <img class="showcase-image" src="{{ url_for('static', filename='slideshow/image1.jpg') }}" alt="Showcase Image 1">
-            <img class="showcase-image" src="{{ url_for('static', filename='slideshow/image2.jpg') }}" alt="Showcase Image 2">
-            <img class="showcase-image" src="{{ url_for('static', filename='slideshow/image3.jpg') }}" alt="Showcase Image 3">
-            <!-- Add more image elements here -->
-        </div>
+     
         
  
 
@@ -809,6 +1045,17 @@ label[for="fileInput"] {
 
 
         <!-- Price Calculator Fields -->
+		<div class="main-wrapper">
+
+
+       <div class="showcase-container">
+		
+            <img class="showcase-image" src="{{ url_for('static', filename='slideshow/image1.jpg') }}" alt="Showcase Image 1">
+            <img class="showcase-image" src="{{ url_for('static', filename='slideshow/image2.jpg') }}" alt="Showcase Image 2">
+            <img class="showcase-image" src="{{ url_for('static', filename='slideshow/image3.jpg') }}" alt="Showcase Image 3">
+            <!-- Add more image elements here -->
+        </div>
+		
 <div class="calculator-container">
     <!-- New Service Selection Dropdown -->
     <label for="serviceSelection" >Ausgewählter Dienst:</label>
@@ -825,29 +1072,29 @@ label[for="fileInput"] {
 	    <p style="text-align: center; font-size: 20px;">Die passenden Materialien für die Größe Ihres Artikels werden automatisch generiert. Die vollständige Liste finden Sie hier:</p>
 
 	    <!-- Add upload button -->
-    <label for="fileInput">Datei hochladen:</label>
-	
-    <input type="file" id="fileInput" class="calculator-field" accept="*" required>
-    <button class="uploadButton"  id="upload_btn" type="button" onclick="uploadFile()">Hochladen</button>
+	<label for="fileInput">Datei hochladen:</label>
+	<input type="file" id="fileInput" class="calculator-field" accept="*" required onchange="showUploadButton()">
+	<!-- Initially hide the upload button -->
+	<button class="uploadButton" id="upload_btn" type="button" onclick="uploadFile()" style="display: none;">Hochladen</button>
 
-    <!-- Display upload status message -->
-		<div id="uploadStatus"></div>
+	<!-- Display upload status message -->
+	<div id="uploadStatus"></div>
+
+	<label for="length">Länge (mm)</label>
+	<input type="number" id="length" min="1" max="600" class="calculator-field" required placeholder="Länge eingeben">
+	<label for="width">Breite (mm):</label>
+	<input type="number" id="width" min="1" max="1000" class="calculator-field" required placeholder="Breite eingeben">
+	<label for="width">Material:</label>
+	<select id="material">
+		<option value="A1">Sperrholz Pappel 4 mm (max 300x300 mm)</option>
+		<option value="A2">Sperrholz Pappel 4 mm (max 600x600 mm)</option>
+		<option value="B1">Plexiglas XT 4mm Farblos 0A000 (max 250x250 mm)</option>
+		<option value="B2">Plexiglas XT 4mm Farblos 0A000 (max 500x500 mm)</option>
+		<option value="" disabled selected>Wählen Sie das Material aus</option>
+	</select>
 
 
-        <label for="length">Length (mm):</label>
-        <input type="number" id="length" min="1" max="600" class="calculator-field" required placeholder="Enter length">
-        <label for="width">Width (mm):</label>
-        <input type="number" id="width" min="1" max="1000" class="calculator-field" required placeholder="Enter width">
-		   <input type="file" id="fileInput" style="display: none;">
-		        <label for="width">Material:</label>
-     <select id="material">
-    <!-- Add the default option here -->
-	   <option value="A1">Sperrholz Pappel 4 mm (max 300x300 mm)</option>
-            <option value="A2">Sperrholz Pappel 4 mm (max 600x600 mm)</option>
-            <option value="B1">Plexiglas XT 4mm Farblos 0A000 (max 250x250 mm)</option>
-            <option value="B2">Plexiglas XT 4mm Farblos 0A000 (max 500x500 mm)</option>
-    <option value="" disabled selected>Select Material</option>
-</select>
+
 <div class="stripe-buttons">
             <!-- Stripe Buy Button for Material A1 -->
             <stripe-buy-button
@@ -879,38 +1126,49 @@ label[for="fileInput"] {
         </div>
 
         </select>
-</div>
+	</div>
+<div class="scan-fields">
+    <p style="text-align: center; font-size: 20px;">Wir erstellen 3D-Scans von kleinen bis mittelgroßen Objekten.</p>
+    <p style="text-align: center; font-size: 20px;">Diese Scans werden in <span style="color: #f77f00; font-weight: bold;">CAD-Dateien</span> umgewandelt. Sie können mit unserem <span style="color: #f77f00; font-weight: bold;">Laserschneider</span>, <span style="color: #f77f00; font-weight: bold;">3D-Drucker</span> oder <span style="color: #f77f00; font-weight: bold;">CNC-Fräse</span> nachgebildet werden.</p>
+    <p style="text-align: center; font-size: 20px;">Ein Beispiel für die von uns unterstützten Artikeltypen finden Sie hier:</p>
+
+
 	
-      <div class="scan-fields">
-	     <p style="text-align: center; font-size: 20px;">	  Wir erstellen 3D-Scans von kleinen bis mittelgroßen Objekten. Diese Scans werden in CAD-Dateien umgewandelt. Sie können mit unserem Laserschneider, 3D-Drucker oder CNC-Fräse nachgebildet werden. Ein Beispiel für die von uns unterstützten Artikeltypen finden Sie hier:
-</p>
-    <label for="scanService">Wählen Sie den Scan-Service:</label>
-    <select id="scanService" class="calculator-field">
-        <option value="normal">Normaler Scan</option>
-        <option value="extended">Erweiterter Scan</option>
-    </select>
+	<select id="scanService" class="calculator-field">
+    <option value="" disabled selected>Wählen Sie einen Dienst aus.</option>
+    <option value="normal">Normaler Scan</option>
+    <option value="extended">Erweiterter Scan</option>
+</select>
+
+	
+	
+	
     <div class="scan-buttons">
         <script async src="https://js.stripe.com/v3/buy-button.js"></script>
         <stripe-buy-button buy-button-id="buy_btn_1NhhfDEgtx1au46GbxegSbLY" publishable-key="pk_live_51Lxm6sEgtx1au46GHhDtjk3JZ04OaA8p7T6xM4lQFLxfbPotRsuT4AhoM4WA0myCsirZeQN32vnUvUSmn1zVyD3m00docojbx7"></stripe-buy-button>
         <stripe-buy-button buy-button-id="buy_btn_1NhiQPEgtx1au46GowKRNiET" publishable-key="pk_live_51Lxm6sEgtx1au46GHhDtjk3JZ04OaA8p7T6xM4lQFLxfbPotRsuT4AhoM4WA0myCsirZeQN32vnUvUSmn1zVyD3m00docojbx7"></stripe-buy-button>
     </div>
-</div>
+	</div>
 
 
 <div class="bike-fields">
-    <p style="text-align: center; font-size: 20px;">In seinem vorherigen Job war unser Mechaniker der einzige Mechaniker für ein Mikromobilitäts-Sharing-Unternehmen mit einer Flotte von allein <span style="color: orange;">2000</span> <span style="color: orange;">Zweirädern</span>. Gerne bietet er einige Reparaturen in unserer Leopoldstätter Werkstatt an.</p>
-    <label for="bikeService">Wählen Sie den Service:</label>
-    <select id="bikeService" class="calculator-field">
-        <option value="general">Allgemeiner Service</option>
-        <option value="brakes">Bremsen einstellen und ähnliches</option>
-    </select>
+    <p style="text-align: center; font-size: 20px;">In seinem vorherigen Job war unser Hauptmechaniker der einzige Mechaniker für ein Mikromobilitäts-Sharing-Unternehmen mit einer Flotte von allein <span style="color: orange;">2000</span> <span style="color: orange;">Zweirädern</span>. Gerne bietet er einige Reparaturen in unserer Leopoldstätter Werkstatt an.</p>
+    <p style="text-align: center; font-size: 20px;">Wir bieten Reparaturen von Fahrrädern und Rollern an.</p>
+    <p style="text-align: center; font-size: 20px;">Buchen Sie entweder direkt eine Reparatur über den Preisrechner oder kontaktieren Sie uns per WhatsApp.</p>
+
+<select id="bikeService" class="calculator-field">
+    <option value="" disabled selected>Wählen Sie einen Dienst aus.</option>
+    <option value="general">Allgemeiner Service</option>
+    <option value="brakes">Bremsen einstellen und ähnliches</option>
+</select>
+
+	
+	
     <div class="bike-buttons">
         <script async src="https://js.stripe.com/v3/buy-button.js"></script>
         <stripe-buy-button buy-button-id="buy_btn_1Nhhs3Egtx1au46GUtz7L8Oz" publishable-key="pk_live_51Lxm6sEgtx1au46GHhDtjk3JZ04OaA8p7T6xM4lQFLxfbPotRsuT4AhoM4WA0myCsirZeQN32vnUvUSmn1zVyD3m00docojbx7"></stripe-buy-button>
         <stripe-buy-button buy-button-id="buy_btn_1NhhvMEgtx1au46Gq688Pa97" publishable-key="pk_live_51Lxm6sEgtx1au46GHhDtjk3JZ04OaA8p7T6xM4lQFLxfbPotRsuT4AhoM4WA0myCsirZeQN32vnUvUSmn1zVyD3m00docojbx7"></stripe-buy-button>
     </div>
-</div>
-
 
 
 
@@ -923,7 +1181,19 @@ label[for="fileInput"] {
     </div>
 </div>
 
-
+<script>
+function showUploadButton() {
+    var fileInput = document.getElementById("fileInput");
+    var uploadButton = document.getElementById("upload_btn");
+    if (fileInput.files.length > 0) {
+        // If a file is selected, show the upload button
+        uploadButton.style.display = "block";
+    } else {
+        // If no file is selected, hide the upload button
+        uploadButton.style.display = "none";
+    }
+}
+</script>
 
 <script>
 document.addEventListener('DOMContentLoaded', function() {
@@ -1031,27 +1301,109 @@ function toggleFAQ() {
 
 </script>
 
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    let buttons = document.querySelectorAll('.faq-button, .impressum-button, .whatsapp-button');
+    
+    // Define our button colors
+    let buttonColors = [
+        '#003049',
+        '#D62828',
+        '#F77F00',
+        '#FCBF49',
+        '#EAE2B7',
+        '#9CB380',
+        '#1B98E0',
+        '#2E933C'
+    ];
+
+    function darkenColor(colorStr) {
+        // Transform color string to RGB values
+        let rgb = colorStr.slice(1).match(/.{2}/g).map(hex => parseInt(hex, 16));
+        
+        // Darken by 10%
+        return `rgb(${Math.floor(rgb[0] * 0.9)}, ${Math.floor(rgb[1] * 0.9)}, ${Math.floor(rgb[2] * 0.9)})`;
+    }
+
+    buttons.forEach(btn => {
+        // Get a random color from the buttonColors array and then remove that color to avoid repetition
+        let randomIndex = Math.floor(Math.random() * buttonColors.length);
+        let randomColor = buttonColors[randomIndex];
+        buttonColors.splice(randomIndex, 1);  // Remove the selected color
+
+        btn.style.backgroundColor = randomColor;
+
+        btn.addEventListener('mouseover', function() {
+            // Darken on hover
+            btn.style.backgroundColor = darkenColor(randomColor);
+        });
+
+        btn.addEventListener('mouseout', function() {
+            // Return to original color when not hovering
+            btn.style.backgroundColor = randomColor;
+        });
+
+        btn.addEventListener('mousedown', function() {
+            // Get another random color on click and update the stored color
+            let randomIndex = Math.floor(Math.random() * buttonColors.length);
+            randomColor = buttonColors[randomIndex];
+            buttonColors.splice(randomIndex, 1);  // Remove the selected color
+
+            btn.style.backgroundColor = randomColor;
+        });
+    });
+});
+
+
+</script>
 
 
 
 
 
+</div>
+
+</div>
 
 
-<button class="faq-button" onclick="toggleFAQ()">FAQ</button>
-
-<!-- FAQ Field -->
-<div class="faq-field" id="faqField">
-    <p>Your FAQ content here</p>
-    <!-- You can add more questions and answers -->
+</div>
+</div>
+</div>
 </div>
 
 
 
-<!-- Impressum Button -->
-<button class="impressum-button" onclick="toggleImpressum()">Impressum</button>
+
+
+
+<div class="button-container2">
+    <button class="faq-button" onclick="toggleFAQ()">FAQ</button>
+    <button class="impressum-button" onclick="toggleImpressum()">Impressum</button>
+	<button class="impressum-button" onclick="toggleImpressum()">Kontakt</button>
+
+</div>
+
 
 <!-- Impressum Field -->
+
+<div class="faq-field" id="faqField">
+    <div class="info-subtitle"><strong>Worum geht es in dieser Werkstatt?</strong></div>
+    <p>Wir arbeiten ständig an unseren Projekten. Daneben sind wir bereit, Dienstleistungen anzubieten, die unserem Hauptgeschäft ähneln.</p>
+    
+    <div class="info-subtitle"><strong>Bieten Sie zusätzlich zu den im Preisrechner aufgeführten Dienstleistungen an?</strong></div>
+    <p>Ja, kontaktieren Sie uns per <span style="color: #f77f00; font-weight: bold;">WhatsApp</span> und wir finden eine Lösung.</p>
+    
+    <div class="info-subtitle"><strong>Ich habe eine Dienstleistung von Ihnen erworben. Wo und wann kann ich das fertige Produkt abholen?</strong></div>
+    <p>Sie erhalten eine <span style="color: #f77f00; font-weight: bold;">E-Mail</span> und eine <span style="color: #f77f00; font-weight: bold;">SMS</span>, wenn Ihr Produkt fertig ist. Das ist normalerweise innerhalb <span style="color: #f77f00; font-weight: bold;">von 24 Stunden</span>. Die Abholung erfolgt an unseren Standorten in der <span style="color: #f77f00; font-weight: bold;">Vorgartenstraße, 1020</span> oder <span style="color: #f77f00; font-weight: bold;">Schönngasse, 1020</span>. Eine Übergabe kann in Liesing vereinbart werden.</p>
+
+    <div class="info-subtitle"><strong>Wie erfolgt der Versand?</strong></div>
+    <p>Sobald der Auftrag fertig ist, wird er zur Post gebracht und verschickt. Sie erhalten einen <span style="color: #f77f00; font-weight: bold;">Tracking-Link</span> per <span style="color: #f77f00; font-weight: bold;">E-Mail</span> und <span style="color: #f77f00; font-weight: bold;">SMS</span>. Sie erhalten die Sendung voraussichtlich innerhalb <span style="color: #f77f00; font-weight: bold;">von 1-2 Tagen</span>, wie bei der Post üblich. Natürlich länger nach Deutschland.</p>
+
+    <div class="info-subtitle"><strong>Ich möchte eine Rückerstattung beantragen.</strong></div>
+    <p>Rückerstattungen können innerhalb von 14 Tagen nach dem Kauf erfolgen. Füllen Sie das Formular hier aus.</p>
+</div>
+
+
 <div class="impressum-field" id="impressumField">
     <p>Lukas Majer</p>
     <p>Vorgartenstrasse 171, Wien, 1020</p>
@@ -1059,8 +1411,9 @@ function toggleFAQ() {
 </div>
 
 
-
-
+<div class="whatsapp-field" id="whatsappField">
+    <p>+43 670 359 66 14</p>
+</div>
 
 
 
@@ -1084,7 +1437,7 @@ document.addEventListener('DOMContentLoaded', function() {
         var selectedMaterial = materialSelect.value;
     
         // Clear existing options
-        materialSelect.innerHTML = '<option value="" disabled selected>Select Material</option>'; // Default option
+        materialSelect.innerHTML = '<option value="" disabled selected>Material auswählen</option>'; // Default option
         
         // Define material options based on criteria
         var materialOptions = [
@@ -1141,7 +1494,12 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 
-
+<script>
+    function toggleWhatsapp() {
+        var impressumField = document.getElementById('whatsappField');
+        impressumField.classList.toggle('whatsapp-visible');
+    }
+</script>
 
 
 
@@ -1150,4 +1508,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 </body>
+
 </html>
+
