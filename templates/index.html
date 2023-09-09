@@ -18,7 +18,7 @@ body {
 
         .logo-container {
             text-align: center;
-            padding: 5px 0;
+            padding: 30px 0;
         }
 
         .logo {
@@ -26,25 +26,32 @@ body {
             height: auto;
         }
 
-        .button-container {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            padding: 20px 0;
-        }
+.button-container {
+    display: flex;
+	    flex: 1; /* Take up all available space left after allocating space for the image showcase */
 
-    .button {
+    flex-direction: column;
+    /* Remove align-items: center; to allow buttons to take full width */
+    padding: 20px 0;
+    max-width: 23%; /* This ensures the container takes up the full width of its parent */
+}
+
+.button {
     font-weight: bold;
-    border: none;
-    padding: 20px 40px;
-    margin: 5px;
+    border: 5px solid white;
+    padding: 20px 0;
+    margin: 5px 0;
     cursor: pointer;
     font-size: 20px;
     text-decoration: none;
-    display: inline-block;
-    border-radius: 10px;
+    display: block;
+    width: 100%;
     transition: background-color 0.3s ease-in-out;
+    border-radius: 10px;
+    box-sizing: border-box;
 }
+
+
 
 /* For tablets and medium-sized screens (between 768px and 1023px) */
 @media screen and (max-width: 1023px) and (min-width: 768px) {
@@ -57,11 +64,28 @@ body {
 /* For mobile screens (less than 767px) */
 @media screen and (max-width: 767px) {
     .button {
-        padding: 10px 20px;
+        padding: 5px 10px;
         font-size: 16px;
+		    margin: 2px 0;
+			            justify-content: center;
+
+
+		
     }
+	
+	.button-container {
+    display: flex;
+	    max-width: 100%; /* This ensures the container takes up the full width of its parent */
+		    width: 100%;
+
+		            flex-wrap: wrap;
+	    flex: 1; /* Take up all available space left after allocating space for the image showcase */
+
+            justify-content: center;
+
 }
 
+}
         /* Button colors */
         .button-color-1 { background-color: #003049; color: white; }
         .button-color-2 { background-color: #D62828; color: white; }
@@ -286,6 +310,8 @@ body {
     animation: fade 4s infinite;
     object-fit: contain;
     border-radius: 10px;
+	    border: 5px solid white;
+
 }
 
 .main-wrapper {
@@ -300,25 +326,29 @@ body {
 
 
 
-.calculator-container,
 .showcase-container {
+    flex: 1; /* Take available space */
+    box-sizing: border-box; /* Ensure padding doesn't affect width */
+    border-radius: 10px;
+    max-width: 50%; /* Max width to account for the gap */
+	    margin-bottom: 10px;
+    margin-right: 8px; /* Inner padding */
+
+}
+
+.calculator-container {
     flex: 1; /* Take available space */
     box-sizing: border-box; /* Ensure padding doesn't affect width */
     padding: 20px; /* Inner padding */
     background-color: rgba(0, 0, 0, 0.7);
     border-radius: 10px;
-    max-width: 48%; /* Max width to account for the gap */
+	    border: 5px solid white; /* Thicker white border */
+
+    max-width: 25%; /* Max width to account for the gap */
 	    margin-bottom: 10px;
 
 }
 
-/* On smaller screens, they stack */
-@media (max-width: 768px) {
-    .calculator-container,
-    .showcase-container {
-        max-width: 100%;
-    }
-}
 
 
 /* On smaller screens, they stack */
@@ -329,13 +359,22 @@ body {
         gap: 2%;
     }
 
-    .calculator-container,
     .showcase-container {
+	        max-width: 100%;
+        width: 98%;
+
+    }
+	
+	    .calculator-container {
+	        max-width: 100%;
         width: 100%;
     }
+		 
+
+
 }
 
-		
+	}	
 		
 		
         /* Showcase container styles */
@@ -580,6 +619,9 @@ body {
 	   /* Impressum Button Styling */
     /* Center the Impressum Button */
 
+.lmao {
+    display: none;
+}
 
 
     /* Impressum Field Styling */
@@ -757,9 +799,8 @@ label[for="fileInput"] {
         .whatsapp-button img {
             width: 40px; /* Adjust the width as needed */
             height: 40px; /* Adjust the height as needed */
-            border: 2px solid black;
             border-radius: 50%;
-            margin-right: 10px;
+            margin-right: 0px;
         }
 
         .whatsapp-text {
@@ -784,47 +825,12 @@ label[for="fileInput"] {
 
 		
 		       <!-- Add the poster image here -->
-        <div class="poster-container">
-            <img class="poster-image" src="{{ url_for('static', filename='poster1.png') }}" alt="Poster 1">
-        </div>
+
 		
 		
-		
-		
-        <div class="button-container">
-		
+	
 		
 
-            <!-- Assign unique class names to each button for color change -->
-       <a href="http://3dprintwien.ermine.at" class="button">3D-Modellierung / 3D-Druck</a>
-		<a href="http://3dscanning.ermine.at" class="button">3D-Scanning</a>
-		<a href="http://lasergravur.ermine.at" class="button">Lasergravur und -schneiden</a>
-		<a href="http://fahrrad.ermine.at" class="button">Fahrrad-/Rollerwerkstatt</a>
-		<a href="http://cncfrase.ermine.at" class="button">CNC Fräse Teileerstellung</a>
-		<a href="http://beyondtouristtraps.ermine.at" class="button">Reisegenerator für ruhige Orte</a>
-		<a href="^~^" class="button">Weitere Projekte</a>
-
-        </div>
-		
-<div class="expandable-section">
-    <!-- Your content here -->
-    <div class="expandable-content">
-		(Klicken Sie auf jede Zeile, um sie anzuzeigen.)
-
-            <a href="http://boardgames.ermine.at" style="color:white;">
-                <p><span class="highlighted">Brettspiele!</span> Wir haben einige Brettspiele oder Erweiterungen erstellt.</p>
-            </a>
-        
-            <a href="http://songlooping.ermine.at" style="color:white;">
-                <p>Eine Website, die Loop-Punkte in einem Song findet und eine Endlosschleife erstellt (<span class="highlighted">Songlooping</span> - man kann nicht sagen, wo der Song beginnt und endet)</p>
-            </a>
-        
-            <a href="http://soundscapes.ermine.at" style="color:white;">
-                <p>Eine Website mit „<span class="highlighted">Soundscapes</span>“ – Umgebungsgeräuschen aller Art. Alles in Endlosschleife.</p>
-            </a>
-        
-    </div>
-</div>
 
 
 
@@ -833,20 +839,7 @@ label[for="fileInput"] {
 	
     <!-- Centered "poster3.png" image -->
 
-<div class="info-field">
-    <div class="info-title">Wir sind eine kleine Werkstatt im Zentrum von Wien.</div>
-    <div class="info-subtitle">Unsere Vorteile sind:</div>
-    <div style="margin-top: 20px;"> <!-- Adding a gap between titles -->
-        <div class="info-text">
-            <div class="info-subtitle" style="color: #d62828; font-weight: bold; display: block;">Komfort:</div>
-            <span style="color: #f77f00;"><strong>Unser Service ist schnell.</strong></span> Die Bestellung kann sofort über unseren <span style="color: #f77f00;"><strong>Preisrechner</strong></span> aufgegeben werden. <span style="color: #f77f00;"><strong>Kein</strong></span> E-Mail-Versand hin und zurück, <span style="color: #f77f00;"><strong>keine</strong></span> Wartezeit auf Öffnungszeiten. Das ist der größte Vorteil, den wir Ihnen bieten.<br>
-            <div class="info-subtitle" style="color: #d62828; font-weight: bold; display: block;">Preis:</div>
-            Unsere Preise sind <span style="color: #f77f00;"><strong>günstig</strong></span>, und das unabhängig von der Art des Auftrages.<br>
-            <div class="info-subtitle" style="color: #d62828; font-weight: bold; display: block;">Leidenschaft:</div>
-            Wir, die beiden Gründer, sind bei allem, was wir tun, mit <span style="color: #f77f00;"><strong>Leidenschaft</strong></span> dabei. Sie machen Geschäfte direkt mit uns.
-        </div>
-    </div>
-</div>
+
 
 
 
@@ -858,19 +851,25 @@ label[for="fileInput"] {
 </div>
 
 <script>
-document.querySelector('.button[href="^~^"]').addEventListener('click', function(event) {
-    event.preventDefault();
-    let section = document.querySelector('.expandable-section');
-    if (section.style.display === "none" || !section.style.display) {
-        section.style.display = "block";
-    } else {
-        section.style.display = "none";
-    }
+document.addEventListener('DOMContentLoaded', function() {
+
+    document.querySelector('.button[href=".lmao"]').addEventListener('click', function(event) {
+        event.preventDefault();
+        let section = document.querySelector(event.target.getAttribute('href'));
+        if (section.style.display === "none" || !section.style.display) {
+            section.style.display = "block";
+        } else {
+            section.style.display = "none";
+        }
+    });
+
+    // Assuming you have an element with the class 'close-btn' to close the expandable section.
+    document.querySelector('.close-btn').addEventListener('click', function() {
+        document.querySelector('.lmao').style.display = 'none';
+    });
+
 });
 
-document.querySelector('.close-btn').addEventListener('click', function() {
-    document.querySelector('.expandable-section').style.display = 'none';
-});
 
 </script>
     
@@ -993,22 +992,19 @@ document.addEventListener('DOMContentLoaded', function() {
             <span class="whatsapp-text">Kontaktieren Sie uns über WhatsApp für spezielle Wünsche und Fragen! +43 670 359 66 14</span>
         </div>
     </div>
-		
-<body>
-    <video id="video-background" autoplay muted loop>
+		  <video id="video-background" autoplay muted loop>
         <source src="{{ url_for('static', filename='video.mp4') }}" type="video/mp4">
         Your browser does not support the video tag.
     </video>
+<body>
+
     
  
 </div>
 
 
     <div id="content">
-		     <!-- Display "poster2.png" image -->
-        <div class="poster-container">
-            <img class="poster-image" src="{{ url_for('static', filename='poster2.png') }}" alt="Poster 2">
-        </div>
+
 	
      
         
@@ -1025,9 +1021,25 @@ document.addEventListener('DOMContentLoaded', function() {
 <!-- calculator  -->
 
 
+
+
+
+
         <!-- Price Calculator Fields -->
 		<div class="main-wrapper">
+ <div class="button-container">
+		
+		
 
+            <!-- Assign unique class names to each button for color change -->
+       <a href="http://3dprintwien.ermine.at" class="button">3D Modelling / Printing / 3D Scanning</a>
+		<a href="http://lasercutting.ermine.at" class="button">Lasergravur und -schneiden</a>
+		<a href="http://fahrradwerkstatt.ermine.at" class="button">Fahrrad-/Scooterwerkstatt</a>
+		<a href="http://cncfrase.ermine.at" class="button">CNC Fräse Teileerstellung</a>
+		<a href="http://beyondtouristtraps.ermine.at" class="button">Travel Guide</a>
+<a href=".lmao" class="button">Weitere Projekte</a>
+
+        </div>
 
        <div class="showcase-container">
 		
@@ -1045,6 +1057,8 @@ document.addEventListener('DOMContentLoaded', function() {
         <option value="3dPrint">3D-Modellierung / 3D-Druck - 3Dprintwien.at</option>
         <option value="3dScan">3D-Scanning</option>
         <option value="bike">Fahrrad-/Rollerwerkstatt</option>
+		        <option value="calendly">Fahrradankauf</option>
+
 		
     </select>
     
@@ -1133,7 +1147,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 <div class="bike-fields">
-    <p style="text-align: center; font-size: 20px;">In seinem vorherigen Job war unser Hauptmechaniker der einzige Mechaniker für ein Mikromobilitäts-Sharing-Unternehmen mit einer Flotte von allein <span style="color: orange;">2000</span> <span style="color: orange;">Zweirädern</span>. Gerne bietet er einige Reparaturen in unserer Leopoldstätter Werkstatt an.</p>
     <p style="text-align: center; font-size: 20px;">Wir bieten Reparaturen von Fahrrädern und Rollern an.</p>
     <p style="text-align: center; font-size: 20px;">Buchen Sie entweder direkt eine Reparatur über den Preisrechner oder kontaktieren Sie uns per WhatsApp.</p>
 
@@ -1150,6 +1163,96 @@ document.addEventListener('DOMContentLoaded', function() {
         <stripe-buy-button buy-button-id="buy_btn_1Nhhs3Egtx1au46GUtz7L8Oz" publishable-key="pk_live_51Lxm6sEgtx1au46GHhDtjk3JZ04OaA8p7T6xM4lQFLxfbPotRsuT4AhoM4WA0myCsirZeQN32vnUvUSmn1zVyD3m00docojbx7"></stripe-buy-button>
         <stripe-buy-button buy-button-id="buy_btn_1NhhvMEgtx1au46Gq688Pa97" publishable-key="pk_live_51Lxm6sEgtx1au46GHhDtjk3JZ04OaA8p7T6xM4lQFLxfbPotRsuT4AhoM4WA0myCsirZeQN32vnUvUSmn1zVyD3m00docojbx7"></stripe-buy-button>
     </div>
+	    </div>
+
+	    <div class="calendly-Fields">
+
+
+
+	<div class="expandable-section3">
+		<!-- Brettspiele! Expandable Section -->
+	  
+		<div class="expandable-content">
+
+	   <div class="info-subtitle">Wir übernehmen Ihr gebrauchtes Fahrrad.</div>
+		   <div class="info-subtitle">Je nach Zustand des Fahrrads erhalten Sie <span class="highlighted"> €20 bis €40.</span></div>
+		   		  <div class="info-text">Wir akzeptieren alle Fahrräder, außer:</div>
+
+ <div class="info-text">Wir nehmen keine Fahrräder mit beschädigtem (verzogenem) Rahmen entgegen.</div>
+ <div class="info-text">Fehlende Räder.</div>
+ 
+
+
+			</div>
+			
+			</div>
+
+
+<div class="expandable-section2">
+		<!-- Brettspiele! Expandable Section -->
+	  
+		<div class="expandable-content">
+
+    <div class="info-subtitle">Benutzen Sie das Feld unten, um einen Termin zu reservieren, um das Fahrrad zu verkaufen.
+		</div>
+		<!-- Calendly Inline-Widget Beginn -->
+<div class="calendly-inline-widget" data-url="https://calendly.com/erminerad/30min?hide_gdpr_banner=1&background_color=f5f8f4&primary_color=f78615" style="min-width:320px;height:700px;"></div>
+<script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+<!-- Calendly Inline-Widget Ende -->
+		<!-- Calendly Inline-Widget Beginn -->
+		</div>
+
+			</div>
+			
+			
+			</div>
+			</div>
+
+
+	
+       
+    </div>
+</div>
+    </div>
+	
+	<div class="lmao expandable-section">
+    <!-- Your content here -->
+    <div class="expandable-content">
+		(Klicken Sie auf jede Zeile, um sie anzuzeigen.)
+
+            <a href="http://boardgames.ermine.at" style="color:white;">
+                <p><span class="highlighted">Brettspiele!</span> Wir haben einige Brettspiele oder Erweiterungen erstellt.</p>
+            </a>
+        
+            <a href="http://songlooping.ermine.at" style="color:white;">
+                <p>Eine Website, die Loop-Punkte in einem Song findet und eine Endlosschleife erstellt (<span class="highlighted">Songlooping</span> - man kann nicht sagen, wo der Song beginnt und endet)</p>
+            </a>
+        
+            <a href="http://soundscapes.ermine.at" style="color:white;">
+                <p>Eine Website mit „<span class="highlighted">Soundscapes</span>“ – Umgebungsgeräuschen aller Art. Alles in Endlosschleife.</p>
+            </a>
+        
+    </div>
+</div>
+	
+<div class="info-field">
+    <div class="info-title">Wir sind eine kleine Werkstatt im Zentrum von Wien.</div>
+    <div class="info-subtitle">Unsere Vorteile sind:</div>
+    <div style="margin-top: 20px;"> <!-- Adding a gap between titles -->
+        <div class="info-text">
+            <div class="info-subtitle" style="color: #d62828; font-weight: bold; display: block;">Komfort:</div>
+            <span style="color: #f77f00;"><strong>Unser Service ist schnell.</strong></span> Die Bestellung kann sofort über unseren <span style="color: #f77f00;"><strong>Preisrechner</strong></span> aufgegeben werden. <span style="color: #f77f00;"><strong>Kein</strong></span> E-Mail-Versand hin und zurück, <span style="color: #f77f00;"><strong>keine</strong></span> Wartezeit auf Öffnungszeiten. Das ist der größte Vorteil, den wir Ihnen bieten.<br>
+            <div class="info-subtitle" style="color: #d62828; font-weight: bold; display: block;">Preis:</div>
+            Unsere Preise sind <span style="color: #f77f00;"><strong>günstig</strong></span>, und das unabhängig von der Art des Auftrages.<br>
+            <div class="info-subtitle" style="color: #d62828; font-weight: bold; display: block;">Leidenschaft:</div>
+            Wir sind bei allem, was wir tun, mit <span style="color: #f77f00;"><strong>Leidenschaft</strong></span> dabei. Sie machen Geschäfte direkt mit uns.
+        </div>
+    </div>
+</div>
+
+
+
+<!-- Calendly Inline-Widget Ende -->
 
 
 
@@ -1199,6 +1302,7 @@ document.addEventListener('DOMContentLoaded', function() {
     var serviceSelection = document.getElementById('serviceSelection');
     var laserFields = document.querySelector('.laser-fields');
     var bikeFields = document.querySelector('.bike-fields');
+	var calendlyFields = document.querySelector('.calendly-Fields');
     var scanFields = document.querySelector('.scan-fields');
     var bikeButtons = document.querySelectorAll('.bike-buttons stripe-buy-button');
 
@@ -1207,6 +1311,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         laserFields.style.display = 'none';
         bikeFields.style.display = 'none';
+		calendlyFields.style.display = 'none';
         scanFields.style.display = 'none';
 
         if (selectedService === 'laser') {
@@ -1217,6 +1322,8 @@ document.addEventListener('DOMContentLoaded', function() {
             scanFields.style.display = 'block';
         } else if (selectedService === 'bike') {
             bikeFields.style.display = 'block';
+		} else if (selectedService === 'calendly') {
+            calendlyFields.style.display = 'block';
         }
     }
 
@@ -1386,7 +1493,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 <div class="faq-field" id="faqField">
     <div class="info-subtitle"><strong>Worum geht es in dieser Werkstatt?</strong></div>
-    <p>Wir arbeiten ständig an unseren Projekten. Daneben sind wir bereit, Dienstleistungen anzubieten, die unserem Hauptgeschäft ähneln.</p>
+    <p>Wir bieten verschiedene Dienstleistungen an, und das über einen transparenten Online-Service. Alles ist klar und transparent.</p>
     
     <div class="info-subtitle"><strong>Bieten Sie zusätzlich zu den im Preisrechner aufgeführten Dienstleistungen an?</strong></div>
     <p>Ja, kontaktieren Sie uns per <span style="color: #f77f00; font-weight: bold;">WhatsApp</span> und wir finden eine Lösung.</p>
@@ -1405,7 +1512,7 @@ document.addEventListener('DOMContentLoaded', function() {
 <div class="impressum-field" id="impressumField">
     <p>Lukas Majer</p>
     <p>Vorgartenstrasse 171, Wien, 1020</p>
-    <p>Multimedia Agentur</p>
+    <p>G-36233052</p>
 </div>
 
 
