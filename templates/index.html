@@ -33,14 +33,14 @@ body {
     flex-direction: column;
     /* Remove align-items: center; to allow buttons to take full width */
     padding: 20px 0;
-    max-width: 23%; /* This ensures the container takes up the full width of its parent */
+    max-width: 20%; /* This ensures the container takes up the full width of its parent */
 }
 
 .button {
     font-weight: bold;
     border: 5px solid white;
     padding: 20px 0;
-    margin: 14px 0;
+    margin: 11px 0;
     cursor: pointer;
     font-size: 20px;
     text-decoration: none;
@@ -53,25 +53,18 @@ body {
 
 
 
-/* For tablets and medium-sized screens (between 768px and 1023px) */
-@media screen and (max-width: 1023px) and (min-width: 768px) {
-    .button {
-        padding: 15px 30px;
-        font-size: 18px;
-    }
-}
 
-/* For mobile screens (less than 767px) */
-@media screen and (max-width: 767px) {
+/* For mobile screens (less than 1300px) */
+@media screen and (max-width: 1300px) {
     .button {
         padding: 5px 10px;
         font-size: 16px;
-		    margin: 2px 0;
+		    margin: 2px 2px;
 			            justify-content: center;
 
 
 		
-    }
+    
 	
 	.button-container {
     display: flex;
@@ -85,6 +78,7 @@ body {
 
 }
 
+}
 }
         /* Button colors */
         .button-color-1 { background-color: #003049; color: white; }
@@ -138,7 +132,7 @@ body {
         }
 
         /* Adjust layout on mobile */
-        @media (max-width: 768px) {
+        @media (max-width: 1301px) {
 		
 			.logo {
                 max-width: 40%; /* Increased size for mobile */
@@ -330,9 +324,22 @@ body {
     flex: 1; /* Take available space */
     box-sizing: border-box; /* Ensure padding doesn't affect width */
     border-radius: 10px;
-    max-width: 50%; /* Max width to account for the gap */
+    max-width: 40%; /* Max width to account for the gap */
 	    margin-bottom: 10px;
     margin-right: 8px; /* Inner padding */
+
+}
+
+
+.werkstatt-container {
+    flex: 1; /* Take available space */
+    box-sizing: border-box; /* Ensure padding doesn't affect width */
+    border-radius: 10px;
+    max-width: 38%; /* Max width to account for the gap */
+	    margin-bottom: 10px;
+			    border: 5px solid white; /* Thicker white border */
+
+    margin-right: 0px; /* Inner padding */
 
 }
 
@@ -344,15 +351,17 @@ body {
     border-radius: 10px;
 	    border: 5px solid white; /* Thicker white border */
 
-    max-width: 25%; /* Max width to account for the gap */
-	    margin-bottom: 10px;
+    max-width: 60%; /* Max width to account for the gap */
+	    margin-left: auto;
+	    margin-right: auto;
+	    margin-bottom: auto;
 
 }
 
 
 
 /* On smaller screens, they stack */
-@media (max-width: 768px) {
+@media (max-width: 1301px) {
     .main-wrapper {
         display: flex;
         flex-direction: column;
@@ -371,7 +380,16 @@ body {
     }
 		 
 
+   .button-container {
+	        max-width: 100%;
+        width: 98%;
 
+    }
+	   .werkstatt-container {
+	        max-width: 100%;
+        width: 98%;
+
+    }
 }
 
 	}	
@@ -488,15 +506,13 @@ body {
         background-color: rgba(0, 0, 0, 0.7);
         border-radius: 10px;
         padding: 20px;
-        margin: 20px auto;
         color: white;
-        max-width: 70%;
         text-align: center; /* Center the text */
     }
 
     .info-title {
         font-weight: bold;
-        font-size: 28px;
+        font-size: 25px;
         margin: 10px;
     }
 
@@ -517,7 +533,7 @@ body {
 		/* ... Other styles ... */
 
 /* Mobile adjustments placed at the end of your CSS */
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 1300px) {
     body .info-title {
         font-size: 22px !important;
     }
@@ -567,7 +583,7 @@ body {
 		
 		
 		/* Mobile layout */
-@media (max-width: 768px) {
+@media (max-width: 1301px) {
     /* ... (other styles) ... */
 
     /* Reduce the size of the logo by half */
@@ -582,7 +598,7 @@ body {
 
 
   /* Mobile layout */
-    @media (max-width: 768px) {
+    @media (max-width: 1301px) {
         /* ... (other styles) ... */
 
         /* Increase the size of posters to 150% on mobile */
@@ -603,7 +619,7 @@ body {
 	
 
     /* Desktop layout */
-    @media (min-width: 768px) {
+    @media (min-width: 1301px) {
         /* ... (other styles) ... */
 
         /* Reduce the size of posters to 30% on desktop */
@@ -1026,19 +1042,37 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
         <!-- Price Calculator Fields -->
+
 		<div class="main-wrapper">
- <div class="button-container">
+		 <div class="button-container">
 		
 		
 
             <!-- Assign unique class names to each button for color change -->
+					<a href="http://fahrradwerkstatt.ermine.at" class="button">Fahrrad-/Scooterwerkstatt</a>
+
        <a href="http://3dprintwien.ermine.at" class="button">3D Modelling / Printing / 3D Scanning</a>
 		<a href="http://lasercutting.ermine.at" class="button">Lasergravur und -schneiden</a>
-		<a href="http://fahrradwerkstatt.ermine.at" class="button">Fahrrad-/Scooterwerkstatt</a>
-		<a href="http://cncfrase.ermine.at" class="button">CNC Fräse Teileerstellung</a>
 		<a href="http://beyondtouristtraps.ermine.at" class="button">Travel Guide</a>
 <a href=".lmao" class="button">Weitere Projekte</a>
 
+        </div>
+		       <div class="werkstatt-container">
+
+<div class="info-field">
+    <div class="info-title">Wir sind eine kleine Werkstatt im Zentrum von Wien.</div>
+    <div class="info-subtitle">Unsere Vorteile sind:</div>
+    <div style="margin-top: 20px;"> <!-- Adding a gap between titles -->
+        <div class="info-text">
+            <div class="info-subtitle" style="color: #d62828; font-weight: bold; display: block;">Komfort:</div>
+            <span style="color: #f77f00;"><strong>Unser Service ist schnell.</strong></span> Die Bestellung kann sofort über unseren <span style="color: #f77f00;"><strong>Preisrechner</strong></span> aufgegeben werden. <span style="color: #f77f00;"><strong>Kein</strong></span> E-Mail-Versand hin und zurück, <span style="color: #f77f00;"><strong>keine</strong></span> Wartezeit auf Öffnungszeiten. Das ist der größte Vorteil, den wir Ihnen bieten.<br>
+            <div class="info-subtitle" style="color: #d62828; font-weight: bold; display: block;">Preis:</div>
+            Unsere Preise sind <span style="color: #f77f00;"><strong>günstig</strong></span>.<br>
+            <div class="info-subtitle" style="color: #d62828; font-weight: bold; display: block;">Leidenschaft:</div>
+            Wir sind bei allem, was wir tun, mit <span style="color: #f77f00;"><strong>Leidenschaft</strong></span> dabei. Sie machen Geschäfte direkt mit uns.
+        </div>
+    </div>
+</div>
         </div>
 
        <div class="showcase-container">
@@ -1049,16 +1083,19 @@ document.addEventListener('DOMContentLoaded', function() {
             <!-- Add more image elements here -->
         </div>
 		
+
+</div>
+	
 <div class="calculator-container">
     <!-- New Service Selection Dropdown -->
     <label for="serviceSelection" >Ausgewählter Dienst:</label>
     <select id="serviceSelection"  class="calculator-field">
-        <option value="laser">Lasergravur und -schneiden</option>
-        <option value="3dPrint">3D-Modellierung / 3D-Druck - 3Dprintwien.at</option>
-        <option value="3dScan">3D-Scanning</option>
+        
         <option value="bike">Fahrrad-/Rollerwerkstatt</option>
 		        <option value="calendly">Fahrradankauf</option>
-
+        <option value="laser">Lasergravur und -schneiden</option>
+<option value="3dPrint">3D-Modellierung / 3D-Druck - 3Dprintwien.at</option>
+        <option value="3dScan">3D-Scanning</option>
 		
     </select>
     
@@ -1150,8 +1187,19 @@ document.addEventListener('DOMContentLoaded', function() {
 			</div>
 
 <div class="bike-fields">
-    <p style="text-align: center; font-size: 20px;">Wir bieten Reparaturen von Fahrrädern und Rollern an.</p>
-    <p style="text-align: center; font-size: 20px;">Buchen Sie entweder direkt eine Reparatur über den Preisrechner oder kontaktieren Sie uns per WhatsApp.</p>
+  <p style="text-align: center; font-size: 20px;">Wir bieten Reparaturen von Fahrrädern und Rollern an.</p>
+    <p style="text-align: center; font-size: 20px;">Buchen Sie entweder direkt eine Reparatur oder kontaktieren Sie uns per WhatsApp.</p>
+<!-- Calendly Badge-Widget Beginn -->
+<!-- Calendly Link-Widget Beginn -->
+<!-- Calendly Inline-Widget Beginn -->
+<div class="calendly-inline-widget" data-url="https://calendly.com/erminerad/fahrradreparatur" style="min-width:320px;height:700px;"></div>
+<script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+<!-- Calendly Inline-Widget Ende -->
+<!-- Calendly Inline-Widget Ende -->
+  
+<!-- Calendly Inline-Widget Beginn -->
+
+    <p style="text-align: center; font-size: 20px;">Sie können mehrere Leistungen auch im Voraus buchen :) </p>
 
 <select id="bikeService" class="calculator-field">
     <option value="" disabled selected>Wählen Sie einen Dienst aus.</option>
@@ -1161,11 +1209,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
 	
 	
-    <div class="bike-buttons">
-        <script async src="https://js.stripe.com/v3/buy-button.js"></script>
-        <stripe-buy-button buy-button-id="buy_btn_1Nhhs3Egtx1au46GUtz7L8Oz" publishable-key="pk_live_51Lxm6sEgtx1au46GHhDtjk3JZ04OaA8p7T6xM4lQFLxfbPotRsuT4AhoM4WA0myCsirZeQN32vnUvUSmn1zVyD3m00docojbx7"></stripe-buy-button>
-        <stripe-buy-button buy-button-id="buy_btn_1NhhvMEgtx1au46Gq688Pa97" publishable-key="pk_live_51Lxm6sEgtx1au46GHhDtjk3JZ04OaA8p7T6xM4lQFLxfbPotRsuT4AhoM4WA0myCsirZeQN32vnUvUSmn1zVyD3m00docojbx7"></stripe-buy-button>
-    </div>
 	    </div>
 
 	    <div class="calendly-Fields">
@@ -1223,22 +1266,6 @@ document.addEventListener('DOMContentLoaded', function() {
             </a>
         
     </div>
-</div>
-	
-<div class="info-field">
-    <div class="info-title">Wir sind eine kleine Werkstatt im Zentrum von Wien.</div>
-    <div class="info-subtitle">Unsere Vorteile sind:</div>
-    <div style="margin-top: 20px;"> <!-- Adding a gap between titles -->
-        <div class="info-text">
-            <div class="info-subtitle" style="color: #d62828; font-weight: bold; display: block;">Komfort:</div>
-            <span style="color: #f77f00;"><strong>Unser Service ist schnell.</strong></span> Die Bestellung kann sofort über unseren <span style="color: #f77f00;"><strong>Preisrechner</strong></span> aufgegeben werden. <span style="color: #f77f00;"><strong>Kein</strong></span> E-Mail-Versand hin und zurück, <span style="color: #f77f00;"><strong>keine</strong></span> Wartezeit auf Öffnungszeiten. Das ist der größte Vorteil, den wir Ihnen bieten.<br>
-            <div class="info-subtitle" style="color: #d62828; font-weight: bold; display: block;">Preis:</div>
-            Unsere Preise sind <span style="color: #f77f00;"><strong>günstig</strong></span>, und das unabhängig von der Art des Auftrages.<br>
-            <div class="info-subtitle" style="color: #d62828; font-weight: bold; display: block;">Leidenschaft:</div>
-            Wir sind bei allem, was wir tun, mit <span style="color: #f77f00;"><strong>Leidenschaft</strong></span> dabei. Sie machen Geschäfte direkt mit uns.
-        </div>
-    </div>
-</div>
 
 
 
