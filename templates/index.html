@@ -260,9 +260,37 @@ body {
     transition: background-color 0.5s ease;  /* Provides the fade effect */
     border: none;
     cursor: pointer;
-    margin-bottom: 20px;
-	margin-top: 20px;	/* Adds a gap at the bottom of the buttons */
+    margin-top:40px;
+		margin-right: 20px;	/* Adds a gap at the bottom of the buttons */
+    margin-bottom: 90px;
+
 }
+
+#google_translate_element {
+    margin-bottom: -10px;  /* Adjust this value as necessary */
+	    margin-top: 10px;  /* Adjust this value as necessary */
+
+}
+
+.google-translate-container {
+    background-color: #ffffff;  /* A lightened shade for demonstration */
+    color: white;
+    padding: 7px;
+    font-size: 18px;
+    border-radius: 5px;
+    transition: background-color 0.5s ease;  /* Provides the fade effect */
+    border: none;
+    cursor: pointer;
+    margin-bottom: 20px;
+	    position: relative;
+    margin-top: -40px;
+
+
+      display: inline-flex; /* Changing to inline-flex for more consistent behavior with other flex children */
+    align-items: center; /* This will center the content vertically inside the Google Translate container */
+
+}
+
 
 
 .faq-button:hover, .impressum-button:hover {
@@ -748,14 +776,18 @@ label[for="fileInput"] {
   margin-bottom: 20px; /*
 
 
-.button-container2 {
+.button-container2 > * {
+    flex: 0 0 auto;
+    align-self: center;
     display: flex;
-    justify-content: center;   /* This will horizontally center the items */
-    align-items: center;       /* This will vertically align the items in the center */
-    width: 100%;               /* Ensures the container takes the full width of its parent */
-    margin-top: 20px;          /* Adjust this value for spacing on top */
-    margin-bottom: 20px;       /* Adjust this value for spacing at the bottom */
+    justify-content: center;
+    align-items: center; /* This property vertically centers the direct children in the flex container */
+    flex-wrap: nowrap;
+    width: 100%;
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
+
 
 .button-container2 .faq-button {
     margin-right: 10px; /* Adjust this value for spacing between the buttons */
@@ -799,8 +831,10 @@ label[for="fileInput"] {
    .whatsapp-container {
             position: fixed;
             bottom: 20px;
-            right: 20px;
-        }
+         		 right: 20px;
+                    z-index: 2;
+
+		}
 
         .whatsapp-button {
             display: flex;
@@ -835,6 +869,8 @@ label[for="fileInput"] {
 	
 	<div class="content-container">
         <div class="logo-container">
+						<a href="https://ermine.at/">
+
             <img class="logo" src="{{ url_for('static', filename='logo.png') }}" alt="Logo" id="logo">
         </div>
 		        </div>
@@ -1093,6 +1129,8 @@ document.addEventListener('DOMContentLoaded', function() {
         
         <option value="bike">Fahrrad-/Rollerwerkstatt</option>
 		        <option value="calendly">Fahrradankauf</option>
+			<option value="radl">Fahrradverkauf</option>
+
         <option value="laser">Lasergravur und -schneiden</option>
 <option value="3dPrint">3D-Modellierung / 3D-Druck - 3Dprintwien.at</option>
         <option value="3dScan">3D-Scanning</option>
@@ -1335,6 +1373,8 @@ document.addEventListener('DOMContentLoaded', function() {
             laserFields.style.display = 'block';
         } else if (selectedService === '3dPrint') {
             window.location.href = 'https://3dprintwien.ermine.at';
+			  } else if (selectedService === 'radl') {
+            window.location.href = 'https://radlzentrum.ermine.at';
         } else if (selectedService === '3dScan') {
             scanFields.style.display = 'block';
         } else if (selectedService === 'bike') {
@@ -1480,7 +1520,21 @@ document.addEventListener('DOMContentLoaded', function() {
 
 </script>
 
-
+ <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement(
+                {pageLanguage: 'en'},
+                'google_translate_element'
+            );
+        }
+    </script>
+ 
+    <script type="text/javascript"
+            src=
+"https://translate.google.com/translate_a/element.js?
+cb=googleTranslateElementInit">
+    </script>
+ 
 
 
 
@@ -1502,7 +1556,12 @@ document.addEventListener('DOMContentLoaded', function() {
 <div class="button-container2">
     <button class="faq-button" onclick="toggleFAQ()">FAQ</button>
     <button class="impressum-button" onclick="toggleImpressum()">Impressum</button>
+<div class="google-translate-container">
 
+    <div id="google_translate_element"></div>
+
+    
+</div>
 </div>
 
 
